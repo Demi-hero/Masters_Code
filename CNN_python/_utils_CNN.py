@@ -454,7 +454,7 @@ def data_split_AE_training (images_array_train, train_val_ratio=0.7) :
 
 
 # (15.2) Function to split training features and labels arrays into training/validation sets
-def data_split_CNN_training (images_array_train, labels_array_train, train_val_ratio=0.7) : 
+def data_split_CNN_training (images_array_train, labels_array_train, train_val_ratio=0.7) :
     
     if len(images_array_train) != len(labels_array_train) : 
     

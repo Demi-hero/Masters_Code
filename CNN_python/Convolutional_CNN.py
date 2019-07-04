@@ -73,10 +73,9 @@ class Conv128_3_NN :
     
     
         self.model = Model(inputs=input_img, outputs=output)
-                
-     
-    def train (self, train_images, train_labels, val_images, val_labels, optimizer='sgd',
-               loss='mean_squared_error', epochs=100, batch_size=256, shuffle=True) : 
+
+    def train(self, train_images, train_labels, val_images, val_labels, optimizer='sgd',
+              loss='mean_squared_error', epochs=100, batch_size=256, shuffle=True):
         
         self.optimizer = optimizer
         self.loss = loss
