@@ -1,0 +1,2 @@
+Acc_mean,Acc_std,Prec_mean,Prec_std,Rec_mean,Rec_std,F1_mean,F1_std,Train_time(s),Train_time(s)_std
+0.9483,0.0041,0.9719,0.0192,0.9419,0.0218,0.9563,0.0055,1207.6080,32.4813
