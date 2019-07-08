@@ -1,20 +1,23 @@
 import pandas as pd
 
-data = pd.read_csv("../Data/GZ1_T2_Full.csv")
+expert_data = pd.read_csv("../Data/GZ1_Expert_Master.csv")
+merger_data = pd.read_csv("../Data/GZ1_MG-T2_cross-search.csv")
 
+# Create a list of Droppable Object IDs
 
-def mergers (row):
-    if row["MG"] >= 0.5:
-        return 1
-    else:
-        return 0
+ex_set1 = merger_data[merger_data.IN_EXP_1 == 1]
+ex_set2 = merger_data[merger_data.IN_EXP_2 == 1]
 
+ids_to_drop = ex_set1.OBJID_1.append(ex_set2.OBJID_2)
 
-data["Merger"] = data.apply(lambda row:mergers(row), axis=1)
+# drop out matching pairs from the master table
+# ~ returns the compliment of the operation
+new_expert = expert_data[~expert_data.OBJID.isin(ids_to_drop)]
 
-print(data[data.Merger == 1])
-# print(data.head(10))
+# check the output has been moded
+print(len(expert_data.index))
+print(len(new_expert.index))
 
-# mergers = data[data.MG >= 0.5]
-# non_mergers = data[data.MG < 0.5]
-# non_mergers.head(10)
+# write out this modded expert list
+
+new_expert.to_csv("../Data/GZ1_Trunc_Expert.csv", header=False)

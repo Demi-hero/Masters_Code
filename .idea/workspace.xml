@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23e380af-d871-47fe-a9d2-da97d4b5aaea" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/CNN_python/_utils_CNN.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN_python/_utils_CNN.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Image_Seperation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Merger_Filter.py" beforeDir="false" afterPath="$PROJECT_DIR$/Merger_Filter.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,59 +16,17 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CNN_python/_utils_CNN.py">
+        <entry file="file://$PROJECT_DIR$/Merger_Filter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2618">
-              <caret line="455" column="92" lean-forward="true" selection-start-line="455" selection-start-column="92" selection-end-line="455" selection-end-column="92" />
-              <folding>
-                <element signature="e#87#105#0" expanded="true" />
-                <element signature="e#697#1528#0" />
-                <element signature="e#1690#2879#0" />
-                <element signature="e#3016#4279#0" />
-                <element signature="e#4435#5747#0" />
-                <element signature="e#5868#6176#0" />
-                <element signature="e#6330#7363#0" />
-                <element signature="e#7502#8181#0" />
-                <element signature="e#8346#8815#0" />
-                <element signature="e#8981#9531#0" />
-                <element signature="e#9652#10432#0" />
-                <element signature="e#10624#11905#0" />
-                <element signature="e#15871#16159#0" />
-                <element signature="e#16358#16963#0" />
-                <element signature="e#17060#17511#0" />
-                <element signature="e#17759#19104#0" />
-                <element signature="e#19329#19730#0" />
-                <element signature="e#19942#20442#0" />
-                <element signature="e#20594#21680#0" />
-                <element signature="e#21830#22058#0" />
-              </folding>
+            <state relative-caret-position="391">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CNN_python/Convolutional_CNN.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="808">
-              <caret line="93" column="32" lean-forward="true" selection-start-line="93" selection-start-column="32" selection-end-line="93" selection-end-column="32" />
-              <folding>
-                <element signature="e#86#95#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CNN_python/CNN_Conv128_64x_5-val.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-436">
-              <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
-              <folding>
-                <element signature="e#87#106#0" expanded="true" />
-                <element signature="e#1044#1143#0" />
-              </folding>
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/Image_Seperation.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -96,16 +57,17 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Merger_Filter.py" />
         <option value="$PROJECT_DIR$/CNN_python/CNN_Conv128_64x_5-val.py" />
         <option value="$PROJECT_DIR$/CNN_python/_utils_CNN.py" />
         <option value="$PROJECT_DIR$/CNN_python/Convolutional_CNN.py" />
+        <option value="$PROJECT_DIR$/Merger_Filter.py" />
+        <option value="$PROJECT_DIR$/Image_Seperation.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="953" />
-    <option name="width" value="974" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-7" />
+    <option name="width" value="969" />
     <option name="height" value="1087" />
   </component>
   <component name="ProjectView">
@@ -113,6 +75,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -120,16 +83,10 @@
               <item name="Masters_Code" type="b2602c69:ProjectViewProjectNode" />
               <item name="Masters_Code" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Masters_Code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Masters_Code" type="462c0819:PsiDirectoryNode" />
-              <item name="CNN_python" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -200,18 +157,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="-7" y="0" width="969" height="1087" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19296375" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.42134213" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3261105" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32914045" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997923" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info active="true" anchor="bottom" id="TODO" order="6" visible="true" weight="0.32917964" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32917964" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32936078" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32936078" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
@@ -224,13 +182,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Merger_Filter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../Autum/Programing/Course Work/UoN_Game_Project/Main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -238,53 +189,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CNN_python/CNN_Conv128_64x_5-val.py">
+    <entry file="file://$PROJECT_DIR$/CNN_python/_utils_CNN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-436">
-          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+        <state relative-caret-position="564">
+          <caret line="455" column="92" selection-start-line="455" selection-start-column="92" selection-end-line="455" selection-end-column="92" />
           <folding>
-            <element signature="e#87#106#0" expanded="true" />
-            <element signature="e#1044#1143#0" />
+            <element signature="e#87#105#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CNN_python/Convolutional_CNN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="808">
-          <caret line="93" column="32" lean-forward="true" selection-start-line="93" selection-start-column="32" selection-end-line="93" selection-end-column="32" />
+        <state relative-caret-position="1445">
+          <caret line="93" column="32" selection-start-line="93" selection-start-column="32" selection-end-line="93" selection-end-column="32" />
           <folding>
             <element signature="e#86#95#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CNN_python/_utils_CNN.py">
+    <entry file="file://$PROJECT_DIR$/CNN_python/CNN_Conv128_64x_5-val.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2618">
-          <caret line="455" column="92" lean-forward="true" selection-start-line="455" selection-start-column="92" selection-end-line="455" selection-end-column="92" />
+        <state relative-caret-position="238">
+          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
           <folding>
-            <element signature="e#87#105#0" expanded="true" />
-            <element signature="e#697#1528#0" />
-            <element signature="e#1690#2879#0" />
-            <element signature="e#3016#4279#0" />
-            <element signature="e#4435#5747#0" />
-            <element signature="e#5868#6176#0" />
-            <element signature="e#6330#7363#0" />
-            <element signature="e#7502#8181#0" />
-            <element signature="e#8346#8815#0" />
-            <element signature="e#8981#9531#0" />
-            <element signature="e#9652#10432#0" />
-            <element signature="e#10624#11905#0" />
-            <element signature="e#15871#16159#0" />
-            <element signature="e#16358#16963#0" />
-            <element signature="e#17060#17511#0" />
-            <element signature="e#17759#19104#0" />
-            <element signature="e#19329#19730#0" />
-            <element signature="e#19942#20442#0" />
-            <element signature="e#20594#21680#0" />
-            <element signature="e#21830#22058#0" />
+            <element signature="e#87#106#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Image_Seperation.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Merger_Filter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>
