@@ -24,7 +24,7 @@ os.environ["CUDA_VISIBLE_DEVICES"]="1"
 
 colour_channels = int(sys.argv[1])
 script_name = sys.argv[0] 
-CWD = "/home/psxmaji" 
+CWD = "../../Data/"
 images_root = "__IMAGES__"
 csv_root    = "__CSV__"
 
