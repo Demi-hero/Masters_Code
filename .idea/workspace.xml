@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23e380af-d871-47fe-a9d2-da97d4b5aaea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Dataset_Maker.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images_for_Merged_Datasets.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_preproces_utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CNN_python/CNN_Conv128_64x_5-val.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN_python/CNN_Conv128_64x_5-val.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dataset_Maker.py" beforeDir="false" afterPath="$PROJECT_DIR$/Dataset_Maker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Image_Seperation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Image_Seperation.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,10 +17,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Oversampler.py">
+        <entry file="file://$PROJECT_DIR$/Image_Seperation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+            <state relative-caret-position="306">
+              <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -26,23 +28,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CNN_python/CNN_Conv128_64x_5-val.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_preproces_utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
-              <folding>
-                <element signature="e#87#106#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="442">
+              <caret line="26" column="43" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Dataset_Maker.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Images_for_Merged_Datasets.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="34">
+              <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -77,11 +76,13 @@
       <list>
         <option value="$PROJECT_DIR$/CNN_python/_utils_CNN.py" />
         <option value="$PROJECT_DIR$/CNN_python/Convolutional_CNN.py" />
-        <option value="$PROJECT_DIR$/Image_Seperation.py" />
         <option value="$PROJECT_DIR$/Merger_Filter.py" />
         <option value="$PROJECT_DIR$/Oversampler.py" />
         <option value="$PROJECT_DIR$/CNN_python/CNN_Conv128_64x_5-val.py" />
         <option value="$PROJECT_DIR$/Dataset_Maker.py" />
+        <option value="$PROJECT_DIR$/Images_for_Merged_Datasets.py" />
+        <option value="$PROJECT_DIR$/Image_Seperation.py" />
+        <option value="$PROJECT_DIR$/_preproces_utils.py" />
       </list>
     </option>
   </component>
@@ -126,7 +127,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Oversampler">
+  <component name="RunManager" selected="Python.Images_for_Merged_Datasets">
+    <configuration name="Dataset_Maker" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Dataset_Maker.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Image_Seperation" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Code" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -140,6 +162,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Image_Seperation.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Images_for_Merged_Datasets" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Images_for_Merged_Datasets.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -192,6 +235,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Images_for_Merged_Datasets" />
+        <item itemvalue="Python.Dataset_Maker" />
         <item itemvalue="Python.Oversampler" />
         <item itemvalue="Python.Merger_Filter" />
         <item itemvalue="Python.Image_Seperation" />
@@ -209,6 +254,14 @@
       <option name="presentableId" value="Default" />
       <updated>1561989538060</updated>
     </task>
+    <task id="LOCAL-00001" summary="Merge and Shuffle seperated datasets.">
+      <created>1562674552658</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1562674552658</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -245,6 +298,10 @@
       <window_info anchor="right" id="R Packages" order="4" />
     </layout>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Merge and Shuffle seperated datasets." />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge and Shuffle seperated datasets." />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../../Autum/Programing/Course Work/UoN_Game_Project/Main.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -273,16 +330,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Image_Seperation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Merger_Filter.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -290,13 +337,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Oversampler.py">
+    <entry file="file://$PROJECT_DIR$/Dataset_Maker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="340">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
@@ -310,10 +354,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dataset_Maker.py">
+    <entry file="file://$PROJECT_DIR$/Oversampler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="289">
+          <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Images_for_Merged_Datasets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Image_Seperation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_preproces_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="43" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
         </state>
       </provider>
     </entry>
