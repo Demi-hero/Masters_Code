@@ -172,14 +172,14 @@ def read_images_tensor_by_ID (IDs_array, IDs_array_to_read, folder_path, dim_tup
     return images_array
 
 
-# (17.1)  shuffles 2 variable length items identically
+# (17)  oversample minority classes in the image tensor
 def shuffle_in_unison(a, b):
     rng_state = np.random.get_state()
     np.random.shuffle(a)
     np.random.set_state(rng_state)
     np.random.shuffle(b)
 
-# (17.2) oversample supplied class(es) in the image tensor
+
 def image_oversampler(id_array,id_subset, image_tensor_array, trace_output, seed=42, times_sampled=14):
     # Takes a corresponding array and tensor. Also needs a subset of the array.
     # Returns an shuffled and upsampled version of both maintaining correspondence
@@ -188,6 +188,7 @@ def image_oversampler(id_array,id_subset, image_tensor_array, trace_output, seed
     temp_array = id_array
     temp_tensor = image_tensor_array
     trace_file = pd.DataFrame(columns=["ID", "times_sampled"])
+    #random_state = np.random.get_state()
     rows_added = times_sampled
     for i in range(0,len(id_subset)):
         id_index = np.where(id_array == id_subset[i])

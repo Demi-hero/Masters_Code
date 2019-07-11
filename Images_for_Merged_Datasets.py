@@ -1,15 +1,9 @@
 import pandas as pd
-
-from _preproces_utils import mass_migration
+import os
+from _preproces_utils import create_catalouge
 
 source = "../Data/image_catalogue"
-keys = "../Data/Merged_Datasets"
-output = "../Data/_IMAGES_"
+ids = pd.read_csv("../Data/GZ1_Full_Expert.csv")
+output = "../Data/Blended_Image_Catalouge/"
 
-key_20 = pd.read_csv(f"{keys}/final_20.csv")
-#key_35 = pd.read_csv(f"{keys}/final_35.csv")
-#key_50 = pd.read_csv(f"{keys}/final_50.csv")
-
-key_20 = key_20.tolist()
-
-print(key_20)
+create_catalouge(source,output,list(ids["OBJID"]))

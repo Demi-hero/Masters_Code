@@ -50,6 +50,15 @@ images_labels = pd.read_csv(images_csv)
 images_IDs    = np.array(images_labels['OBJID'], dtype=str)
 images_array  = read_images_tensor(images_IDs, images_folder, image_tuple) 
 
+merger_subset = (images_labels[images_labels.Label == "M"])
+merger_subset = list(merger_subset.OBJID)
+
+# This is where we want our Oversampling / Data Augment Methods
+images_labels, images_array = image_oversampler(images_labels, merger_subset,
+                                                images_array, CWD, times_sampled=14)
+# Need to recreate the ID list after the suffle.
+images_IDs    = np.array(images_labels['OBJID'], dtype=str)
+
 partitions = [i for i in range(1, 6)]
 
 for test_partition in partitions: 

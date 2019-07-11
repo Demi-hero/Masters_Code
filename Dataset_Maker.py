@@ -1,20 +1,20 @@
 import pandas as pd
+from _preproces_utils import expert_label_renamer
 
-core_path = "../Data"
-output = "../Data/Merged Datasets"
-expert      = pd.read_csv(f"{core_path}/GZ1_Trunc_Expert.csv")
-oversampl20 = pd.read_csv(f"{core_path}/GZ1_Oversampled_Datasets/20_pc_oversampled_Mergers.csv")
-oversampl35 = pd.read_csv(f"{core_path}/GZ1_Oversampled_Datasets/35_pc_oversampled_Mergers.csv")
-oversampl50 = pd.read_csv(f"{core_path}/GZ1_Oversampled_Datasets/50_pc_oversampled_Mergers.csv")
+core_path = "../Data/__CSV__"
+output = "../Data/"
+expert = pd.read_csv(f"{core_path}/GZ1_Trunc_Expert.csv")
+merger = pd.read_csv(f"{core_path}/GZ1_Trunc_Merger.csv")
 
-expert = expert.OBJID
 
-final_20 = expert.append(oversampl20.OBJID_1).sample(frac=1).reset_index(drop=True)
-final_35 = expert.append(oversampl35.OBJID_1).sample(frac=1).reset_index(drop=True)
-final_50 = expert.append(oversampl50.OBJID_1).sample(frac=1).reset_index(drop=True)
+expert["Label"] = expert.apply(lambda row: expert_label_renamer(row), axis=1)
+merger["Label"] = "M"
+merger["OBJID"] = merger["OBJID_1"]
+expert = expert[["OBJID", "Label"]]
+merger = merger[["OBJID", "Label"]]
+output = expert.append(merger).sample(frac=1, random_state=42).reset_index()
 
-combi = [final_20, final_35, final_50]
-names = ['final_20', 'final_35', 'final_50']
-for items,names in zip(combi,names):
-    items.to_csv(f"{output}/{names}.csv", header=True, index=False)
+output = output[["OBJID","Label"]]
+print(output.head(10))
 
+output.to_csv(f"{core_path}/GZ1_Full_Expert2.csv")
