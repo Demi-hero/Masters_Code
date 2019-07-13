@@ -5,10 +5,12 @@ import sys
 #import time
 #from datetime import datetime
 #import pdb
-
+"""
 from _utils_CNN import *
 
 # from Convolutional_CNN import Conv128_3_NN
+script_name = sys.argv[0]
+print(script_name)
 
 os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"]="1"
@@ -46,8 +48,7 @@ merger_subset = (images_labels[images_labels.Label == "M"])
 merger_subset = list(merger_subset.OBJID)
 
 images_array  = read_images_tensor(images_IDs, images_folder, image_tuple, file_extension=".tiff")
-print(images_labels.shape)
-print(images_array.shape)
+
 # This is where we want our oversampling/Data Augment Methods to go?
 images_labels, images_array = image_oversampler(images_labels, merger_subset[1:3],
                                                 images_array, CWD, times_sampled=14)
@@ -55,3 +56,10 @@ images_labels, images_array = image_oversampler(images_labels, merger_subset[1:3
 images_IDs    = np.array(images_labels['OBJID'], dtype=str)
 
 print(images_labels['OBJID'])
+"""
+
+df = pd.read_csv("../Data/__CSV__/GZ1_Full_Expert.csv")
+
+df = df[["OBJID","Label"]]
+df.columns = ["OBJID", "EXPERT"]
+df.to_csv("../Data/__CSV__/GZ1_Full_Expert.csv", index=False)

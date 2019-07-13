@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="23e380af-d871-47fe-a9d2-da97d4b5aaea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Image_Generator_Test.py" afterDir="false" />
+    <list default="true" id="23e380af-d871-47fe-a9d2-da97d4b5aaea" name="Default Changelist" comment="Created new utils file&#10;Created a new">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CNN_python/CNN_Conv128_64x_5-val.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN_python/CNN_Conv128_64x_5-val.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CNN_python/_utils_CNN.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN_python/_utils_CNN.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dataset_Maker.py" beforeDir="false" afterPath="$PROJECT_DIR$/Dataset_Maker.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images_for_Merged_Datasets.py" beforeDir="false" afterPath="$PROJECT_DIR$/Images_for_Merged_Datasets.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_preproces_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/_preproces_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Image_Generator_Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Image_Generator_Test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/headspace.py" beforeDir="false" afterPath="$PROJECT_DIR$/headspace.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CNN_python/_utils_CNN.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="541">
-              <caret line="197" column="19" lean-forward="true" selection-start-line="197" selection-start-column="19" selection-end-line="197" selection-end-column="19" />
+            <state relative-caret-position="196">
+              <caret line="194" column="33" lean-forward="true" selection-start-line="194" selection-start-column="33" selection-end-line="194" selection-end-column="33" />
               <folding>
                 <element signature="e#87#105#0" expanded="true" />
               </folding>
@@ -31,10 +29,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/headspace.py">
+        <entry file="file://$PROJECT_DIR$/Dataset_Maker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="56" column="29" lean-forward="true" selection-start-line="56" selection-start-column="29" selection-end-line="56" selection-end-column="29" />
+            <state relative-caret-position="289">
+              <caret line="17" column="22" lean-forward="true" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -45,8 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CNN_python/CNN_Conv128_64x_5-val.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="782">
-              <caret line="64" column="4" lean-forward="true" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="4" />
+            <state relative-caret-position="-155">
+              <caret line="26" column="15" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="15" />
               <folding>
                 <element signature="e#87#106#0" expanded="true" />
               </folding>
@@ -55,12 +53,24 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Image_Generator_Test.py">
+        <entry file="file://$PROJECT_DIR$/headspace.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
+            <state relative-caret-position="510">
+              <caret line="64" column="60" selection-start-line="64" selection-start-column="60" selection-end-line="64" selection-end-column="60" />
               <folding>
-                <element signature="e#10#28#0" expanded="true" />
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CNN_python/Convolutional_CNN.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1496">
+              <caret line="96" column="31" selection-start-line="96" selection-start-column="31" selection-end-line="96" selection-end-column="31" />
+              <folding>
+                <element signature="e#86#95#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -84,17 +94,24 @@
       <find>image_tuple</find>
       <find>Data_split_CNN_test</find>
       <find>utils_cnn</find>
-      <find>data_split_CNN_test</find>
       <find>data_split_CNN_tra</find>
       <find>images_folder</find>
       <find>read_images_tensor</find>
       <find>(17</find>
-      <find>png</find>
       <find>.png</find>
       <find>(17)</find>
       <find>image.reshape</find>
       <find>images_labels</find>
       <find>data_split_</find>
+      <find>data_split_CNN_test</find>
+      <find>data_split_CNN_training</find>
+      <find>data_split_CNN_</find>
+      <find>png</find>
+      <find>labels_train</find>
+      <find>tiff</find>
+      <find>tensor</find>
+      <find>dim_tuple</find>
+      <find>Expert</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -111,18 +128,18 @@
         <option value="$PROJECT_DIR$/Image_Seperation.py" />
         <option value="$PROJECT_DIR$/Images_for_Merged_Datasets.py" />
         <option value="$PROJECT_DIR$/CNN_python/headspace.py" />
-        <option value="$PROJECT_DIR$/Image_Generator_Test.py" />
         <option value="$PROJECT_DIR$/Dataset_Maker.py" />
         <option value="$PROJECT_DIR$/_utils_CNN.py" />
-        <option value="$PROJECT_DIR$/headspace.py" />
+        <option value="$PROJECT_DIR$/Image_Generator_Test.py" />
         <option value="$PROJECT_DIR$/CNN_python/CNN_Conv128_64x_5-val.py" />
         <option value="$PROJECT_DIR$/CNN_python/_utils_CNN.py" />
+        <option value="$PROJECT_DIR$/headspace.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
-    <option name="width" value="974" />
+    <option name="width" value="1496" />
     <option name="height" value="1087" />
   </component>
   <component name="ProjectView">
@@ -130,7 +147,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -147,6 +163,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -280,9 +297,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.headspace" />
-        <item itemvalue="Python.Dataset_Maker" />
-        <item itemvalue="Python.Image_Generator_Test" />
         <item itemvalue="Python.CNN_Conv128_64x_5-val" />
+        <item itemvalue="Python.Image_Generator_Test" />
+        <item itemvalue="Python.Dataset_Maker" />
         <item itemvalue="Python.Images_for_Merged_Datasets" />
       </list>
     </recent_temporary>
@@ -325,15 +342,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="-7" y="0" width="1496" height="1087" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1076759" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14763232" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3229491" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3259958" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39875388" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -408,56 +425,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Image_Generator_Test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-          <folding>
-            <element signature="e#10#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dataset_Maker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CNN_python/Convolutional_CNN.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-          <folding>
-            <element signature="e#86#95#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/headspace.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="56" column="29" lean-forward="true" selection-start-line="56" selection-start-column="29" selection-end-line="56" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CNN_python/CNN_Conv128_64x_5-val.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="64" column="4" lean-forward="true" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="4" />
-          <folding>
-            <element signature="e#87#106#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_utils_CNN.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -469,10 +436,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Image_Generator_Test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
+          <folding>
+            <element signature="e#10#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CNN_python/Convolutional_CNN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1496">
+          <caret line="96" column="31" selection-start-line="96" selection-start-column="31" selection-end-line="96" selection-end-column="31" />
+          <folding>
+            <element signature="e#86#95#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CNN_python/CNN_Conv128_64x_5-val.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-155">
+          <caret line="26" column="15" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="15" />
+          <folding>
+            <element signature="e#87#106#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dataset_Maker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="22" lean-forward="true" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/headspace.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="64" column="60" selection-start-line="64" selection-start-column="60" selection-end-line="64" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/CNN_python/_utils_CNN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
-          <caret line="197" column="19" lean-forward="true" selection-start-line="197" selection-start-column="19" selection-end-line="197" selection-end-column="19" />
+        <state relative-caret-position="196">
+          <caret line="194" column="33" lean-forward="true" selection-start-line="194" selection-start-column="33" selection-end-line="194" selection-end-column="33" />
           <folding>
             <element signature="e#87#105#0" expanded="true" />
           </folding>

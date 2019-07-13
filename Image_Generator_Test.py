@@ -21,7 +21,7 @@ trial_name = 'Conv128_GZ1_Validation_BW-64x'
 if colour_channels == 3: trial_name = 'Conv128_GZ1_Validation_RGB-64x'
 
 image_tuple   = (64, 64, colour_channels)
-images_folder = "Blended_Image_Catalouge"
+images_folder = "Test"
 images_csv = "GZ1_Full_Expert.csv"
 ###################################################################################################
 # ==================================================================================================
@@ -39,7 +39,7 @@ images_folder = os.path.join(CWD, images_root, images_folder)
 images_csv    = os.path.join(CWD, csv_root, images_csv)
 images_labels = pd.read_csv(images_csv)
 
-images_IDs    = np.array(images_labels['OBJID'], dtype=str)
+images_IDs    = np.array(images_labels['OBJID'], dtype=str)[:1000]
 
 merger_subset = (images_labels[images_labels.Label == "M"])
 merger_subset = list(merger_subset.OBJID)
@@ -48,8 +48,9 @@ images_array  = read_images_tensor(images_IDs, images_folder, image_tuple, file_
 
 
 
-for i in range(len(merger_subset)):
-    id_index = np.where(images_array == merger_subset[i])
+for i in range(len(merger_subset[:2])):
+    id_index = np.where(images_IDs == merger_subset[i])
+    print(id_index)
     id_index = id_index[0][0]
     it = generator.flow(images_array[id_index], batch_size=1)
     for i in range(9):

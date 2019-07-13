@@ -91,7 +91,7 @@ def read_images_flat (IDs_array, folder_path, dim_tuple, file_extension='.png', 
 
 
 #(2.2) Function to read RGB images (OK)
-def read_images_tensor (IDs_array, folder_path, dim_tuple, file_extension='.png') :
+def read_images_tensor (IDs_array, folder_path, dim_tuple, file_extension='.tiff') :
     
     """
     This function reads the sets of 1,000 (RGB) images present in sub-folders of 
@@ -121,6 +121,7 @@ def read_images_tensor (IDs_array, folder_path, dim_tuple, file_extension='.png'
             folder = folders[int(i / 1000)]
         
         image_name = IDs_array[i] + file_extension
+        print(image_name)
         image_path = os.path.join(folder_path, folder, image_name)
         
         image           = cv2.imread(image_path, RGB)
@@ -205,7 +206,7 @@ def image_oversampler(id_array,id_subset, image_tensor_array, trace_output, seed
     shuffle_in_unison(temp_array, temp_tensor)
     trace_file.to_csv("{trace_output}/oversampling_trace.csv".format(trace_output=trace_output))
 
-    return pd.DataFrame(temp_array, columns=["0", "OBJID", "Label"]), temp_tensor
+    return pd.DataFrame(temp_array, columns=["OBJID", "EXPERT"]), temp_tensor
 
 
 
