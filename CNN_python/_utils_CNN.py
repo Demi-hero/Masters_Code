@@ -108,12 +108,12 @@ def read_images_tensor (IDs_array, folder_path, dim_tuple, file_extension='.tiff
     
     if dim_tuple[-1] == 1 : RGB = 0
 
-    #print('\nLoading images', end='')
+    print('\nLoading images', end='')
     print('\nLoading images...\n')
-    
-    for i in range(0, len(IDs_array)) : 
-        
-        if i % 1000 == 0 : 
+
+    for i in range(0, len(IDs_array)) :
+
+        if i % 1000 == 0 :
             
             #print('.', end='', flush=True)
             print(' -> ' + str(i) + ' images done...')
@@ -121,7 +121,6 @@ def read_images_tensor (IDs_array, folder_path, dim_tuple, file_extension='.tiff
             folder = folders[int(i / 1000)]
         
         image_name = IDs_array[i] + file_extension
-        print(image_name)
         image_path = os.path.join(folder_path, folder, image_name)
         
         image           = cv2.imread(image_path, RGB)
@@ -174,11 +173,14 @@ def read_images_tensor_by_ID (IDs_array, IDs_array_to_read, folder_path, dim_tup
 
 
 # (17.1)  shuffles 2 variable length items identically
-def shuffle_in_unison(a, b):
+def shuffle_in_unison(a, b, seed=42):
+    # try and get a way of locking the state.
+    np.random.RandomState(seed=seed)
     rng_state = np.random.get_state()
     np.random.shuffle(a)
     np.random.set_state(rng_state)
     np.random.shuffle(b)
+
 
 # (17.2) oversample supplied class(es) in the image tensor
 def image_oversampler(id_array,id_subset, image_tensor_array, trace_output, seed=42, times_sampled=14):
@@ -198,6 +200,7 @@ def image_oversampler(id_array,id_subset, image_tensor_array, trace_output, seed
                                                                                       rows_added=rows_added))
         repeats = 0
         while repeats < times_sampled:
+            # does v-stack work here?
             temp_tensor = np.concatenate((temp_tensor, image_tensor_array[id_index:id_index+1]))
             temp_array = np.vstack((temp_array, id_array[i]))
             repeats += 1
@@ -322,7 +325,7 @@ def convert_labels_expert (expert_array, double_column=False) :
         
         for i in range(0, length) : 
                         
-            if expert_array[i] == 'L' : result[i, 1] = 1
+            if expert_array[i] == 'M' : result[i, 1] = 1
             
             else : result[i, 0] = 1
             
@@ -332,7 +335,7 @@ def convert_labels_expert (expert_array, double_column=False) :
         
         for i in range(0, length) : 
                         
-            if expert_array[i] == 'L' : result[i] = 1
+            if expert_array[i] == 'M': result[i] = 1
                            
     return result
 
@@ -431,7 +434,6 @@ def data_split_CNN_test_expert (images_array, labels_pd, test_partition, n_split
     
     labels_train_binary = np.array(labels_train['EXPERT'], dtype=str)
     labels_train_binary = convert_labels_expert(labels_train_binary, double_column=True)
-    
     labels_test_binary = np.array(labels_test['EXPERT'], dtype=str)
     labels_test_binary = convert_labels_expert(labels_test_binary, double_column=True) 
     
@@ -542,6 +544,7 @@ def classification_performance (features_train, predictions_array, labels_test, 
     labels_test       = round_to_single_column(labels_test)
     
     CM = Confusion_Matrix(predictions_array, labels_test)
+    print(CM)
     accuracy = Acc(CM)
     precision = Precision(CM)
     recall = Recall(CM)
@@ -555,9 +558,9 @@ def classification_performance (features_train, predictions_array, labels_test, 
     csv_metrics_path = os.path.join(output_path, csv_metrics_name)
     
     metrics_tags = ['Test_part', 'N_train', 'N_test', 'Train_time(s)', 'Train_time',
-                    'Accuracy', 'Precision', 'Recall', 'F1_score','Geometric_Mean']
+                    'Accuracy', 'Precision', 'Recall', 'F1_score', 'Geometric_Mean']
     new_raw_data = [partition, len(features_train), len(labels_test), exec_time, exec_time_str,
-                    accuracy, precision, recall, f1_score, g_mean ]
+                    accuracy, precision, recall, f1_score, g_mean]
 
     new_row = pd.DataFrame(data=[new_raw_data], columns=metrics_tags)
    
@@ -602,12 +605,15 @@ def save_predictions_CNN (data_test, predictions_array, partition, output_path, 
     
     csv_name = output_name + '_test_results_' + str(partition) + '.csv'
     csv_path = os.path.join(output_path, csv_name)
-    
-    data_test['CNN_EL'] = np.array(predictions_array[:, 0])
-    data_test['CNN_SP'] = np.array(predictions_array[:, 1])
-    
+
+    data_test['CNN_NM'] = np.array(predictions_array[:, 0])
+    data_test['CNN_M'] = np.array(predictions_array[:, 1])
+
+    #print(data_test)
+
     #data_test = data_test[['OBJID', 'EL_RAW', 'CS_RAW', 'AMATEUR', 'EXPERT', 'CNN_EL', 'CNN_SP']]
-    data_test = data_test[['OBJID', 'EL_RAW', 'CS_RAW', 'AMATEUR', 'CNN_EL', 'CNN_SP']]
+    #data_test = data_test[['OBJID', 'EL_RAW', 'CS_RAW', 'AMATEUR', 'CNN_EL', 'CNN_SP']]
+    #data_test = data_test[["'OBJID', 'EXPERT' , 'CNN_EL', 'CNN_SP'"]]
        
     data_test.to_csv(csv_path, index=False)
 
@@ -626,16 +632,18 @@ def global_statistics (output_file_dir, output_filename) :
     csv_path = os.path.join(output_file_dir, csv_name)
     csv_file = pd.read_csv(csv_path)
     
-    acc  = csv_file['Accuracy']
-    pre  = csv_file['Precision']
-    rec  = csv_file['Recall']
-    f1s  = csv_file['F1_score']
+    acc = csv_file['Accuracy']
+    pre = csv_file['Precision']
+    rec = csv_file['Recall']
+    f1s = csv_file['F1_score']
+    gom = csv_file['Geometric_Mean']
     time = csv_file['Train_time(s)']
     
     meta_metrics_tags = ['Acc_mean', 'Acc_std', 'Prec_mean', 'Prec_std', 'Rec_mean', 'Rec_std',
-                         'F1_mean', 'F1_std', 'Train_time(s)', 'Train_time(s)_std']
+                         'F1_mean', 'F1_std', 'Geometric_Mean_Mean', 'Geometric_Mean_std','Train_time(s)',
+                         'Train_time(s)_std']
     meta_metrics_data = [acc.mean(), acc.std(), pre.mean(), pre.std(), rec.mean(), rec.std(),
-                         f1s.mean(), f1s.std(), time.mean(), time.std()] 
+                         f1s.mean(), f1s.std(),gom.mean(), gom.std(), time.mean(), time.std()]
     
     ### IMPORTANT!!: This code implements (n - 1)-std function
     
@@ -747,11 +755,12 @@ def F1_score (confusion_matrix) :
 
 
 def Geometric_Mean(confusion_matrix):
+    TP = confusion_matrix[0] * 1.0
+    FN = confusion_matrix[1] * 1.0
+    FP = confusion_matrix[2] * 1.0
+    TN = confusion_matrix[3] * 1.0
 
-    true_positives = 1.0 * confusion_matrix[0]
-    true_negatives = 1.0 * confusion_matrix[3]
-
-    g_mean = np.sqrt(true_positives * true_negatives)
+    g_mean = np.sqrt( (TP/(TP+FN)) * (TN/(FP*TN)))
 
     return round(g_mean, 4)
 
