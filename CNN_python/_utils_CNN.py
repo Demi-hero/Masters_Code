@@ -511,7 +511,7 @@ def data_split_CNN_training (images_array_train, labels_array_train, train_val_r
     labels_train = labels_array_train[0 : train_partition] 
     labels_val   = labels_array_train[train_partition :] 
     
-    return (images_train, labels_train, images_val, labels_val)
+    return images_train, labels_train, images_val, labels_val
 
 
 # (16) Function to convert seconds into dd:hh:mm:ss

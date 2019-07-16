@@ -61,11 +61,7 @@ merger_subset = (images_labels[images_labels.EXPERT == "M"])
 merger_subset = list(merger_subset.OBJID)
 
 
-# This is where we want our Oversampling / Data Augment Methods
-
-images_labels, images_array = image_oversampler(images_labels, merger_subset,
-                                                images_array, CWD, times_sampled=14)
-
+# Data Augment Methods go here
 
 # Need to recreate the ID list after the suffle.
 # images_IDs = np.array(images_labels['OBJID'], dtype=str)
@@ -75,7 +71,7 @@ partitions = [i for i in range(1, 6)]
 
 for test_partition in partitions: 
     
-    # Training, Validation and Test partitions: Do I want my oversampler here instead.
+    # Training, Validation and Test partitions:
     (images_train, labels_train, labels_train_bin, images_test, labels_test,
      labels_test_bin) = data_split_CNN_test_expert(images_array, images_labels, test_partition, n_splits=5)
 
