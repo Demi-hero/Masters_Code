@@ -27,7 +27,7 @@ csv_root    = "__CSV__"
 trial_name = 'Conv128_GZ1_Validation_BW-64x'
 
 if colour_channels == 3:
-    trial_name = 'Conv128_GZ1_Validation_RGB-64x_Test'
+    trial_name = 'Conv128_GZ1_Validation_RGB-64x_1'
 
 image_tuple   = (64, 64, colour_channels)
 images_folder = "Blended_Image_Catalouge_tiff"
@@ -41,8 +41,8 @@ output_folder = directory_check(CWD, 'CNN_' + trial_name, preserve=False)
 # read in file
 id_path = os.path.join(CWD, csv_root, images_csv)
 image_ids = pd.read_csv(id_path)
-image_ids = image_ids[:2000]
-# Only get worried when read in >= 53000
+# Uncomment for when running tests
+# image_ids = image_ids[:2000]
 for test_partition in range(1, 2):
 
     # create the train/test/val trio and oversample the training set
