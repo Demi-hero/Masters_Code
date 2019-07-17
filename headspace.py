@@ -98,12 +98,6 @@ print(output)
 
 #This section is just for me to play in.
 
-image_ids = pd.read_csv("../Data/__CSV__/GZ1_Full_Expert.csv")
-n_splits = 5
 
-data_partitions = [len(x) for x in np.array_split(image_ids, n_splits)]
-
-print(data_partitions)
-
-for i in range(1, 6):
-    print(i)
+for x in range(10):
+    print(np.random.randint(0,2))

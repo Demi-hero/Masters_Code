@@ -1,5 +1,5 @@
 import pandas as pd
-from _preproces_utils import mass_migration
+from Merger_Catalouge_Creation._preproces_utils import mass_migration
 
 # Paths for the data to follow. These both need to exist
 core_path = "D:/Documents/Comp Sci Masters/Project_Data/Data"

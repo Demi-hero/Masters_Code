@@ -1,5 +1,5 @@
 import pandas as pd
-from _preproces_utils import expert_label_renamer
+from Merger_Catalouge_Creation._preproces_utils import expert_label_renamer
 
 core_path = "../Data/__CSV__"
 output = "../Data/"
