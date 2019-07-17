@@ -82,3 +82,5 @@ while len(path_file) < desired_total:
                     os.mkdir(img_cat)
             if len(path_file) > desired_total:
                 break
+csv_output = os.path.join(CWD, CSV, "GZ1_Full_Expert__Augment_Paths.csv")
+path_file.to_csv(csv_output, index=False)
