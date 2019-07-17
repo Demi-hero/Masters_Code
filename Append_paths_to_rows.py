@@ -6,14 +6,14 @@ import os
 # This section adds A File Path to the end of a provided CSV
 image_ids = pd.read_csv("../Data/__CSV__/GZ1_Full_Expert.csv")
 
-CWD = "D:\Documents\Comp Sci Masters\Project_Data\Data"
+CWD = "..\\Data"
 images_root = "__IMAGES__"
 csv_root    = "__CSV__"
 images_folder = "Blended_Image_Catalouge_tiff"
 images_csv = "GZ1_Full_Expert.csv"
 file_extension = ".tiff"
 folder_path = os.path.join(CWD, images_root, images_folder)
-
+print(folder_path)
 folders = sorted([x for x in os.listdir(folder_path) if os.path.isdir(os.path.join(folder_path, x))])
 images_IDs = np.array(image_ids['OBJID'], dtype=str)
 image_paths = list()

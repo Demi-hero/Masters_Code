@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23e380af-d871-47fe-a9d2-da97d4b5aaea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Append_paths_to_rows.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CNN_Preprocessing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Preprocessing/Lite_Test_Train.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CNN_python/Nathans_Oversampled_CNN.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CNN_python/_NOC_Utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Preprocessing/Data_Augmentation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CNN_python/CNN_Conv128_64x_5-val.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN_python/CNN_Conv128_64x_5-val.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CNN_python/_utils_CNN.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN_python/_utils_CNN.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Preprocessing/Oversampler.py" beforeDir="false" afterPath="$PROJECT_DIR$/Preprocessing/Oversampler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/headspace.py" beforeDir="false" afterPath="$PROJECT_DIR$/headspace.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Append_paths_to_rows.py" beforeDir="false" afterPath="$PROJECT_DIR$/Append_paths_to_rows.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,52 +17,36 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CNN_python/_utils_CNN.py">
+        <entry file="file://$PROJECT_DIR$/CNN_python/Nathans_Oversampled_CNN.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="339" column="17" lean-forward="true" selection-start-line="339" selection-start-column="17" selection-end-line="339" selection-end-column="17" />
+            <state relative-caret-position="765">
+              <caret line="52" selection-start-line="52" selection-end-line="52" />
               <folding>
-                <element signature="e#87#105#0" expanded="true" />
+                <element signature="e#0#18#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/headspace.py">
+        <entry file="file://$PROJECT_DIR$/CNN_python/_NOC_Utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="95" selection-start-line="95" selection-end-line="95" />
+            <state relative-caret-position="697">
+              <caret line="48" selection-start-line="48" selection-end-line="48" />
               <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Append_paths_to_rows.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#0#18#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CNN_Preprocessing.py">
+        <entry file="file://$PROJECT_DIR$/Preprocessing/Data_Augmentation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="81" selection-start-line="81" selection-end-line="81" />
+            <state relative-caret-position="438">
+              <caret line="34" column="24" lean-forward="true" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
-                <element signature="e#92#557#0" />
-                <element signature="e#886#1093#0" />
-                <element signature="e#1419#1833#0" />
-                <element signature="e#1039#1534#0" />
               </folding>
             </state>
           </provider>
@@ -74,20 +55,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CNN_python/CNN_Conv128_64x_5-val.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="98" lean-forward="true" selection-start-line="80" selection-start-column="4" selection-end-line="98" />
+            <state relative-caret-position="476">
+              <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
               <folding>
                 <element signature="e#87#106#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Preprocessing/Oversampler.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" selection-start-line="2" selection-end-line="4" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -103,11 +75,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>images_labels</find>
-      <find>data_split_</find>
-      <find>data_split_CNN_test</find>
-      <find>data_split_CNN_</find>
-      <find>png</find>
       <find>labels_train</find>
       <find>tiff</find>
       <find>tensor</find>
@@ -133,6 +100,11 @@
       <find>convert_la</find>
       <find>17</find>
       <find>convert_labels_expert</find>
+      <find>print_head</find>
+      <find>directory</find>
+      <find>convert_se</find>
+      <find>labels_test</find>
+      <find>round_to</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -157,14 +129,17 @@
         <option value="$PROJECT_DIR$/Preprocessing/Lite_Test_Train.py" />
         <option value="$PROJECT_DIR$/Preprocessing/Oversampler.py" />
         <option value="$PROJECT_DIR$/headspace.py" />
-        <option value="$PROJECT_DIR$/Append_paths_to_rows.py" />
         <option value="$PROJECT_DIR$/CNN_Preprocessing.py" />
+        <option value="$PROJECT_DIR$/Append_paths_to_rows.py" />
+        <option value="$PROJECT_DIR$/CNN_python/_NOC_Utils.py" />
+        <option value="$PROJECT_DIR$/CNN_python/Nathans_Oversampled_CNN.py" />
+        <option value="$PROJECT_DIR$/Preprocessing/Data_Augmentation.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
-    <option name="width" value="1155" />
+    <option name="width" value="974" />
     <option name="height" value="1087" />
   </component>
   <component name="ProjectView">
@@ -218,7 +193,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.CNN_Preprocessing">
+  <component name="RunManager" selected="Python.Data_Augmentation">
+    <configuration name="Append_paths_to_rows" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Append_paths_to_rows.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="CNN_Preprocessing" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Code" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -240,7 +236,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Image_Generator_Test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Data_Augmentation" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Code" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -248,11 +244,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Preprocessing" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Image_Generator_Test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Preprocessing/Data_Augmentation.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -282,7 +278,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Oversampler" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Nathans_Oversampled_CNN" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Code" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -290,32 +286,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Preprocessing" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CNN_python" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Preprocessing/Oversampler.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="headspace" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Code" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/headspace.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CNN_python/Nathans_Oversampled_CNN.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -326,11 +301,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Data_Augmentation" />
+        <item itemvalue="Python.Nathans_Oversampled_CNN" />
+        <item itemvalue="Python.Append_paths_to_rows" />
         <item itemvalue="Python.CNN_Preprocessing" />
         <item itemvalue="Python.Lite_Test_Train" />
-        <item itemvalue="Python.headspace" />
-        <item itemvalue="Python.Oversampler" />
-        <item itemvalue="Python.Image_Generator_Test" />
       </list>
     </recent_temporary>
   </component>
@@ -366,7 +341,14 @@
       <option name="project" value="LOCAL" />
       <updated>1563013992294</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Have once again reworked the oversampler. This is because I think i have found a lighter way of not reinventing the wheel. Who Knows.">
+      <created>1563281601661</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1563281601661</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView">
@@ -379,15 +361,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1155" height="1087" extended-state="0" />
+    <frame x="-7" y="0" width="974" height="1087" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20547946" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24835886" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.5125786" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2735849" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39875388" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -407,7 +389,8 @@
     <MESSAGE value="Merge and Shuffle seperated datasets." />
     <MESSAGE value="Created new utils file&#10;Merged Image Catalouge Creator" />
     <MESSAGE value="Fixed the indexing issue with Full Expert CSV&#10;Mostly running through to the CNN now" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed the indexing issue with Full Expert CSV&#10;Mostly running through to the CNN now" />
+    <MESSAGE value="Have once again reworked the oversampler. This is because I think i have found a lighter way of not reinventing the wheel. Who Knows." />
+    <option name="LAST_COMMIT_MESSAGE" value="Have once again reworked the oversampler. This is because I think i have found a lighter way of not reinventing the wheel. Who Knows." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../../Autum/Programing/Course Work/UoN_Game_Project/Main.py">
@@ -465,13 +448,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Preprocessing/Oversampler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="4" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Preprocessing/Lite_Test_Train.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
@@ -484,9 +460,10 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CNN_Preprocessing.py" />
     <entry file="file://$PROJECT_DIR$/headspace.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
+        <state relative-caret-position="77">
           <caret line="95" selection-start-line="95" selection-end-line="95" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
@@ -496,44 +473,72 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CNN_python/_utils_CNN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="339" column="17" lean-forward="true" selection-start-line="339" selection-start-column="17" selection-end-line="339" selection-end-column="17" />
+        <state relative-caret-position="223">
+          <caret line="537" lean-forward="true" selection-start-line="517" selection-end-line="537" />
           <folding>
             <element signature="e#87#105#0" expanded="true" />
+            <element signature="e#8148#9181#0" />
+            <element signature="e#15764#17494#0" />
+            <element signature="e#17671#17959#0" />
+            <element signature="e#18156#18759#0" />
+            <element signature="e#18858#19309#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Preprocessing/Oversampler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="4" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Append_paths_to_rows.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="374">
+          <caret line="22" column="39" lean-forward="true" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CNN_python/Nathans_Oversampled_CNN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CNN_python/_NOC_Utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/CNN_python/CNN_Conv128_64x_5-val.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="98" lean-forward="true" selection-start-line="80" selection-start-column="4" selection-end-line="98" />
+        <state relative-caret-position="476">
+          <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
           <folding>
             <element signature="e#87#106#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CNN_Preprocessing.py">
+    <entry file="file://$PROJECT_DIR$/Preprocessing/Data_Augmentation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="81" selection-start-line="81" selection-end-line="81" />
+        <state relative-caret-position="438">
+          <caret line="34" column="24" lean-forward="true" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#92#557#0" />
-            <element signature="e#886#1093#0" />
-            <element signature="e#1419#1833#0" />
-            <element signature="e#1039#1534#0" />
           </folding>
         </state>
       </provider>
