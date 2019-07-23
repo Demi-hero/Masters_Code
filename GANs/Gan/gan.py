@@ -8,17 +8,21 @@ from keras.layers.convolutional import UpSampling2D, Conv2D
 from keras.models import Sequential, Model
 from keras.optimizers import Adam
 
+import pandas as pd
+from _gan_util import create_image_tensor_on_path
+import os
 import matplotlib.pyplot as plt
-
 import sys
-
 import numpy as np
 
+os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+
 class GAN():
-    def __init__(self):
-        self.img_rows = 28
-        self.img_cols = 28
-        self.channels = 1
+    def __init__(self, img_rows, img_cols, channels):
+        self.img_rows = img_rows
+        self.img_cols = img_cols
+        self.channels = channels
         self.img_shape = (self.img_rows, self.img_cols, self.channels)
         self.latent_dim = 100
 
@@ -89,14 +93,20 @@ class GAN():
 
         return Model(img, validity)
 
-    def train(self, epochs, batch_size=128, sample_interval=50):
+    def train(self, epochs, training_lable, batch_size=128, sample_interval=50, dataset_path="NA", lable_col="Paths"):
 
         # Load the dataset
-        (X_train, _), (_, _) = mnist.load_data()
+        if dataset_path == "NA":
+            (X_train, _), (_, _) = mnist.load_data()
+            # Rescale -1 to 1
+            X_train = X_train / 127.5 - 1.
+            X_train = np.expand_dims(X_train, axis=3)
+        else:
+            path = os.path.join(dataset_path)
+            data = pd.read_csv(path)
+            data = data[data.EXPERT == training_lable]
+            X_train = create_image_tensor_on_path(data[lable_col], self.img_shape, extra_path_details="..\\..")
 
-        # Rescale -1 to 1
-        X_train = X_train / 127.5 - 1.
-        X_train = np.expand_dims(X_train, axis=3)
 
         # Adversarial ground truths
         valid = np.ones((batch_size, 1))
@@ -150,7 +160,7 @@ class GAN():
         cnt = 0
         for i in range(r):
             for j in range(c):
-                axs[i,j].imshow(gen_imgs[cnt, :,:,0], cmap='gray')
+                axs[i,j].imshow(gen_imgs[cnt, :,:,0])
                 axs[i,j].axis('off')
                 cnt += 1
         fig.savefig("images/%d.png" % epoch)
@@ -158,5 +168,6 @@ class GAN():
 
 
 if __name__ == '__main__':
-    gan = GAN()
-    gan.train(epochs=30000, batch_size=32, sample_interval=200)
+    gan = GAN(64, 64, 3)
+    gan.train(epochs=10000, training_lable='M', batch_size=32, sample_interval=200,
+              dataset_path="D:\\Documents\\Comp Sci Masters\\Project_Data\\Data\\__CSV__\\GZ1_Full_Expert_Paths.csv")

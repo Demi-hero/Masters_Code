@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import os
 import cv2
+from keras.datasets import mnist
 import sys
 #import time
 #from datetime import datetime
@@ -95,9 +96,9 @@ shuffle_in_unison(df,df2)
 output = sum(df == df2)
 print(output)
 
-"""
 
-#This section is just for me to play in.
+"""
+#This section was where I made the path tensor maker
 
 def create_image_tensor_on_path(path_list, dim_tuple, extra_path_details=""):
     RGB = 1
@@ -112,11 +113,20 @@ def create_image_tensor_on_path(path_list, dim_tuple, extra_path_details=""):
         image =cv2.imread(img_path, RGB)
         if image is None:
             print(img_path)
-        #image_reshaped = image.reshape(dim_tuple)
-        #images_array[i] = image_reshaped.astype('float32') / 255.0
-    #return images_array
+        image_reshaped = image.reshape(dim_tuple)
+        images_array[i] = image_reshaped.astype('float32') / 255.0
+    return images_array
 
-d = {'col1': ["Fake", "Fake"], "col2" : [1, 2]}
-paths = pd.DataFrame(data= d)
+d = "D:\Documents\Comp Sci Masters\Project_Data\Data\__CSV__\GZ1_Full_Expert__Augment_Paths.csv"
+paths = pd.read_csv(d)
+paths = paths[:100]
 image_tuple   = (64, 64, 3)
-create_image_tensor_on_path(paths.col1, image_tuple)
+imgs = create_image_tensor_on_path(paths["Paths"], image_tuple)
+
+print(imgs[0])
+
+# Playground
+
+(X_train, _), (_, _) = mnist.load_data()
+
+print((X_train, _)[0])
