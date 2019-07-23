@@ -4,7 +4,7 @@ import cv2
 import os
 from keras.preprocessing.image import load_img, img_to_array, ImageDataGenerator
 from _preproces_utils import zero_placer
-
+import sys
 
 # new image paths
 CWD = "..\\..\\Data"
@@ -36,12 +36,13 @@ cur_out_file = "{output}/{zp_lower}{lower}-{zp_upper}{upper}".format(output=outp
 img_cat = os.path.join(cur_out_file)
 os.mkdir(img_cat)
 
-desired_total = len(path_file) * 2
+desired_total = len(path_file) - (len(merger_subset)* 2)
+print(desired_total)
 np.random.seed(seed_value)
 print("Starting Image Generation")
 print("Generating {zeroes}{value}st Transformation ".format(zeroes=zero_placer(lower), value=lower))
 itters = 0
-while len(path_file) < desired_total:
+while itters < desired_total:
     for path in path_list:
         start = np.random.randint(0, 2)
         if start:
@@ -80,7 +81,7 @@ while len(path_file) < desired_total:
                                                                                          upper=upper)
                     img_cat = os.path.join(cur_out_file)
                     os.mkdir(img_cat)
-            if len(path_file) > desired_total:
+            if itters > desired_total:
                 break
 csv_output = os.path.join(CWD, CSV, "GZ1_Full_Expert__Augment_Paths.csv")
 path_file.to_csv(csv_output, index=False)

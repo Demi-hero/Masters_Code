@@ -8,7 +8,7 @@ from imblearn.over_sampling import RandomOverSampler
 from datetime import datetime
 
 
-def cross_fold_train_test_split(image_ids, partition, n_splits = 5, test_size=0.2):
+def cross_fold_train_test_split(image_ids, partition, n_splits=5, test_size=0.2):
 
     data_partitions = [len(x) for x in np.array_split(image_ids, n_splits)]
     start_point = sum(data_partitions[0: (partition - 1)])
@@ -145,7 +145,6 @@ def classification_performance(features_train, predictions_array, labels_test, e
     labels_test = round_to_single_column(labels_test)
 
     CM = Confusion_Matrix(predictions_array, labels_test)
-    print(CM)
     accuracy = Acc(CM)
     precision = Precision(CM)
     recall = Recall(CM)
@@ -159,9 +158,9 @@ def classification_performance(features_train, predictions_array, labels_test, e
     csv_metrics_path = os.path.join(output_path, csv_metrics_name)
 
     metrics_tags = ['Test_part', 'N_train', 'N_test', 'Train_time(s)', 'Train_time',
-                    'Accuracy', 'Precision', 'Recall', 'F1_score', 'Geometric_Mean']
+                    "TP", "FP", "TN", "FN",'Accuracy', 'Precision', 'Recall', 'F1_score', 'Geometric_Mean']
     new_raw_data = [partition, len(features_train), len(labels_test), exec_time, exec_time_str,
-                    accuracy, precision, recall, f1_score, g_mean]
+                    CM[0], CM[2], CM[3], CM[1], accuracy, precision, recall, f1_score, g_mean]
 
     new_row = pd.DataFrame(data=[new_raw_data], columns=metrics_tags)
 
@@ -345,6 +344,6 @@ def Geometric_Mean(confusion_matrix):
     FP = confusion_matrix[2] * 1.0
     TN = confusion_matrix[3] * 1.0
 
-    g_mean = np.sqrt((TP / (TP + FN)) * (TN / (FP * TN)))
+    g_mean = np.sqrt((TP/(TP + FN)) * (TN / (FP + TN)))
 
     return round(g_mean, 4)
