@@ -40,15 +40,22 @@ output_folder = directory_check(CWD, 'CNN_' + trial_name, preserve=False)
 # read in file
 id_path = os.path.join(CWD, csv_root, images_csv)
 image_ids = pd.read_csv(id_path)
+
 # Uncomment for when running tests
 image_ids = image_ids[:1000]
 for test_partition in range(1, 6):
 
-    # create the train/test/val trio and oversample the training set
+    # create the train/test/val trio
     train, test, val = cross_fold_train_test_split(image_ids, test_partition)
-    extras = oversamples(train, train.EXPERT, list(train))
-    train = pd.concat([train, extras], axis=0)
-    train = shuffle(train)
+
+    # Uncomment to perform undersampling
+    # train = undersample(train, train.EXPERT, list(train), reduction=0.7)
+    # train = shuffle(train)
+
+    # Uncomment to perform oversampling
+    # extras = oversample(train, train.EXPERT, list(train))
+    # train = pd.concat([train, extras], axis=0)
+    # train = shuffle(train)
 
     # Binary Lable Creation can I make this bit smaller?
     train_binary_labels = np.array(train['EXPERT'], dtype=str)

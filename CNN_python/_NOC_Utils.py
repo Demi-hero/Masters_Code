@@ -4,7 +4,10 @@ import cv2
 import os
 import sys
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import roc_auc_score
 from imblearn.over_sampling import RandomOverSampler
+from imblearn.under_sampling import RandomUnderSampler
+
 from datetime import datetime
 
 
@@ -21,11 +24,20 @@ def cross_fold_train_test_split(image_ids, partition, n_splits=5, test_size=0.2)
     return training, testing, validation
 
 
-def oversamples(image_ids, image_lables, column_names, seed=42):
+def oversample(image_ids, image_lables, column_names, seed=42):
     ros = RandomOverSampler(random_state=seed)
     resample, relabel = ros.fit_resample(image_ids, image_lables)
     resample = pd.DataFrame(resample, columns=column_names)
     return resample[len(image_ids):]
+
+
+def undersample(image_ids, image_lables, column_names, reduction=0.5, seed=42):
+    minor = len(image_ids[image_ids.EXPERT == 'M'])
+    final = (len(image_ids)-minor) * reduction
+    rus = RandomUnderSampler(sampling_strategy=(minor/final), random_state=seed)
+    resample, relable = rus.fit_resample(image_ids, image_lables)
+    resample = pd.DataFrame(resample, columns=column_names)
+    return resample
 
 
 def convert_labels_expert(expert_array, double_column=False):
@@ -150,6 +162,7 @@ def classification_performance(features_train, predictions_array, labels_test, e
     recall = Recall(CM)
     f1_score = F1_score(CM)
     g_mean = Geometric_Mean(CM)
+    rac = roc_auc_score(labels_test, predictions_array)
     exec_time = round(exec_time, 2)
     exec_time_str = convert_seconds(exec_time)
 
@@ -158,9 +171,9 @@ def classification_performance(features_train, predictions_array, labels_test, e
     csv_metrics_path = os.path.join(output_path, csv_metrics_name)
 
     metrics_tags = ['Test_part', 'N_train', 'N_test', 'Train_time(s)', 'Train_time',
-                    "TP", "FP", "TN", "FN",'Accuracy', 'Precision', 'Recall', 'F1_score', 'Geometric_Mean']
+                    "TP", "FP", "TN", "FN",'Accuracy', 'Precision', 'Recall', 'F1_score', 'Geometric_Mean', "Roc_Auc"]
     new_raw_data = [partition, len(features_train), len(labels_test), exec_time, exec_time_str,
-                    CM[0], CM[2], CM[3], CM[1], accuracy, precision, recall, f1_score, g_mean]
+                    CM[0], CM[2], CM[3], CM[1], accuracy, precision, recall, f1_score, g_mean, rac]
 
     new_row = pd.DataFrame(data=[new_raw_data], columns=metrics_tags)
 
@@ -344,6 +357,8 @@ def Geometric_Mean(confusion_matrix):
     FP = confusion_matrix[2] * 1.0
     TN = confusion_matrix[3] * 1.0
 
-    g_mean = np.sqrt((TP/(TP + FN)) * (TN / (FP + TN)))
-
+    if TP + FN == 0 or FP + TN == 0:
+        g_mean = 0
+    else:
+        g_mean = np.sqrt((TP/(TP + FN)) * (TN / (FP + TN)))
     return round(g_mean, 4)

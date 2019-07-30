@@ -7,6 +7,7 @@ import sys
 #import time
 #from datetime import datetime
 #import pdb
+from _NOC_Utils import create_image_tensor_on_path
 """
 from _utils_CNN import *
 
@@ -97,7 +98,7 @@ output = sum(df == df2)
 print(output)
 
 
-"""
+
 #This section was where I made the path tensor maker
 
 def create_image_tensor_on_path(path_list, dim_tuple, extra_path_details=""):
@@ -123,10 +124,30 @@ paths = paths[:100]
 image_tuple   = (64, 64, 3)
 imgs = create_image_tensor_on_path(paths["Paths"], image_tuple)
 
-print(imgs[0])
+d = "D:\Documents\Comp Sci Masters\Project_Data\Data\__CSV__\GZ1_Full_Expert__Paths.csv"
+paths = pd.read_csv(d)
 
-# Playground
+extras = undersample(paths, paths.EXPERT, list(paths), final_dataset_size=10000, minority_class_size=2733,
+                     seed=42)
+print(extras)
 
-(X_train, _), (_, _) = mnist.load_data()
 
-print((X_train, _)[0])
+"""
+
+from keras.datasets import mnist
+
+d = "D:\Documents\Comp Sci Masters\Project_Data\Data\__CSV__\GZ1_Full_Expert_Paths.csv"
+paths = pd.read_csv(d)
+paths = paths[paths.EXPERT == "M"]
+#paths = paths[:500]
+galaxies = create_image_tensor_on_path(paths.Paths, (64, 64, 3))
+
+print(galaxies.shape[0])
+
+
+(x_train, _) , (x_test, __) = mnist.load_data()
+x_train1 = (x_train.astype(np.float32) / 127.5) - 1
+# x_train2 = (x_train.astype(np.float32) - 127.5)/127.5
+x_train1 = np.expand_dims(x_train1, axis=3)
+print(x_train1.shape[0])
+# print(x_train2[0][0])

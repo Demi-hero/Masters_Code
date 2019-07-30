@@ -17,5 +17,5 @@ def create_image_tensor_on_path(path_list, dim_tuple, extra_path_details=""):
         img_path = os.path.join(extra_path_details, path_list.iloc[i])
         image =cv2.imread(img_path, RGB)
         image_reshaped = image.reshape(dim_tuple)
-        images_array[i] = image_reshaped.astype('float32') / 255.0
+        images_array[i] = image_reshaped.astype('float32') / 175.5 - 1
     return images_array
