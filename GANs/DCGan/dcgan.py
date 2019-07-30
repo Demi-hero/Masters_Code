@@ -105,12 +105,13 @@ class DCGAN():
 
     def train(self, epochs, batch_size=128, save_interval=50):
 
-        # Load the dataset
+        # Load the Test Data dataset
         (X_train, _), (_, _) = mnist.load_data()
-
         # Rescale -1 to 1
         X_train = X_train / 127.5 - 1.
         X_train = np.expand_dims(X_train, axis=3)
+        # Load Real data 
+
 
         # Adversarial ground truths
         valid = np.ones((batch_size, 1))
