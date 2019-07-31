@@ -7,7 +7,7 @@ import sys
 #import time
 #from datetime import datetime
 #import pdb
-from _NOC_Utils import create_image_tensor_on_path
+#from _NOC_Utils import create_image_tensor_on_path
 """
 from _utils_CNN import *
 
@@ -134,20 +134,5 @@ print(extras)
 
 """
 
-from keras.datasets import mnist
-
-d = "D:\Documents\Comp Sci Masters\Project_Data\Data\__CSV__\GZ1_Full_Expert_Paths.csv"
-paths = pd.read_csv(d)
-paths = paths[paths.EXPERT == "M"]
-#paths = paths[:500]
-galaxies = create_image_tensor_on_path(paths.Paths, (64, 64, 3))
-
-print(galaxies.shape[0])
-
-
-(x_train, _) , (x_test, __) = mnist.load_data()
-x_train1 = (x_train.astype(np.float32) / 127.5) - 1
-# x_train2 = (x_train.astype(np.float32) - 127.5)/127.5
-x_train1 = np.expand_dims(x_train1, axis=3)
-print(x_train1.shape[0])
-# print(x_train2[0][0])
+for i in ["Alpha", "Beta"]:
+    print(i)
