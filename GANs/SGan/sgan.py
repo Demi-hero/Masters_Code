@@ -4,7 +4,7 @@ from keras.datasets import mnist
 from keras.layers import Input, Dense, Reshape, Flatten, Dropout, multiply, GaussianNoise
 from keras.layers import BatchNormalization, Activation, Embedding, ZeroPadding2D
 from keras.layers.advanced_activations import LeakyReLU
-from keras.layers.convolutional import UpSampling2D, Conv2D
+from keras.layers.convolutional import Conv2DTranspose, Conv2D
 from keras.models import Sequential, Model
 from keras.optimizers import Adam
 from keras import losses
@@ -12,14 +12,20 @@ from keras.utils import to_categorical
 import keras.backend as K
 
 import matplotlib.pyplot as plt
-
+import sys
+import os
 import numpy as np
+import pandas as pd
+from _gan_util import create_image_tensor_on_path , biniriase_lables
+
+os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 class SGAN:
-    def __init__(self):
-        self.img_rows = 28
-        self.img_cols = 28
-        self.channels = 1
+    def __init__(self, img_rows=28, img_cols=28, channels=1):
+        self.img_rows = img_rows
+        self.img_cols = img_cols
+        self.channels = channels
         self.img_shape = (self.img_rows, self.img_cols, self.channels)
         self.num_classes = 10
         self.latent_dim = 100
@@ -57,19 +63,22 @@ class SGAN:
 
         model = Sequential()
 
-        model.add(Dense(128 * 7 * 7, activation="relu", input_dim=self.latent_dim))
-        model.add(Reshape((7, 7, 128)))
-        model.add(BatchNormalization(momentum=0.8))
-        model.add(UpSampling2D())
-        model.add(Conv2D(128, kernel_size=3, padding="same"))
-        model.add(Activation("relu"))
-        model.add(BatchNormalization(momentum=0.8))
-        model.add(UpSampling2D())
-        model.add(Conv2D(64, kernel_size=3, padding="same"))
-        model.add(Activation("relu"))
-        model.add(BatchNormalization(momentum=0.8))
-        model.add(Conv2D(1, kernel_size=3, padding="same"))
-        model.add(Activation("tanh"))
+        model.add(Dense(256 * 8 * 8, input_dim=self.latent_dim))
+        model.add(BatchNormalization())
+        model.add(LeakyReLU())
+        model.add(Reshape((8, 8, 256)))
+        assert model.output_shape == (None, 8, 8, 256)
+        model.add(Conv2DTranspose(128, (5, 5), strides=(1, 1), padding='same', use_bias=False))
+        assert model.output_shape == (None, 8, 8, 128)
+        model.add(BatchNormalization())
+        model.add(LeakyReLU())
+        model.add(Conv2DTranspose(64, (5, 5), strides=(2, 2), padding='same', use_bias=False))
+        model.add(BatchNormalization())
+        model.add(LeakyReLU())
+        assert model.output_shape == (None, 16, 16, 64)
+        model.add(Conv2DTranspose(3, (5, 5), strides=(4, 4), padding='same', use_bias=False, activation='tanh'))
+        print(model.output_shape)
+        assert model.output_shape == (None, self.img_rows, self.img_cols, self.channels)
 
         model.summary()
 
@@ -109,14 +118,22 @@ class SGAN:
 
         return Model(img, [valid, label])
 
-    def train(self, epochs, batch_size=128, sample_interval=50):
+    def train(self, epochs, batch_size=128, sample_interval=50, dataset = "Mnist",):
 
         # Load the dataset
-        (X_train, y_train), (_, _) = mnist.load_data()
+        if dataset == "Mnist":
+            (X_train, y_train), (_, _) = mnist.load_data()
+        else:
+            path = os.path.join(dataset)
+            data = pd.read_csv(path)
+            img_paths = data.Paths[:100]
+            img_lables = data.EXPERT[:100]
+            y_train = biniriase_lables(img_lables)
+            X_train = create_image_tensor_on_path(img_paths, self.img_shape, extra_path_details="..\\..")
+
+
 
         # Rescale -1 to 1
-        X_train = (X_train.astype(np.float32) - 127.5) / 127.5
-        X_train = np.expand_dims(X_train, axis=3)
         y_train = y_train.reshape(-1, 1)
 
         # Class weights:
@@ -181,7 +198,7 @@ class SGAN:
         cnt = 0
         for i in range(r):
             for j in range(c):
-                axs[i,j].imshow(gen_imgs[cnt, :,:,0], cmap='gray')
+                axs[i,j].imshow(gen_imgs[cnt, :, :])
                 axs[i,j].axis('off')
                 cnt += 1
         fig.savefig("images/mnist_%d.png" % epoch)
@@ -204,6 +221,7 @@ class SGAN:
 
 
 if __name__ == '__main__':
-    sgan = SGAN()
-    sgan.train(epochs=20000, batch_size=32, sample_interval=50)
+    sgan = SGAN(img_cols=64, img_rows=64, channels=3)
+    sgan.train(epochs=20000, batch_size=32, sample_interval=50,
+               dataset="..\\..\\..\\Data\\__CSV__\\GZ1_Full_Expert_Paths.csv")
 

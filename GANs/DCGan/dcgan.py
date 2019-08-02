@@ -65,17 +65,14 @@ class DCGAN:
         model.add(LeakyReLU())
         model.add(Reshape((8, 8, 256)))
         assert model.output_shape == (None, 8, 8, 256)
-
         model.add(Conv2DTranspose(128, (5, 5), strides=(1, 1), padding='same', use_bias=False))
         assert model.output_shape == (None, 8, 8, 128)
         model.add(BatchNormalization())
         model.add(LeakyReLU())
-
         model.add(Conv2DTranspose(64,(5,5), strides=(2, 2), padding='same', use_bias=False))
         model.add(BatchNormalization())
         model.add(LeakyReLU())
         assert model.output_shape == (None, 16, 16, 64)
-
         model.add(Conv2DTranspose(3, (5, 5), strides=(4, 4), padding='same', use_bias=False, activation='tanh'))
         print(model.output_shape)
         assert model.output_shape == (None, self.img_rows, self.img_cols, self.channels)

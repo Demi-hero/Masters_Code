@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23e380af-d871-47fe-a9d2-da97d4b5aaea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/GANs/DCGan/dcgan_bw.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GANs/LSGan/_gan_util.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GANs/SGan/_gan_util.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GANs/DCGan/dcgan.py" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/DCGan/dcgan.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/headspace.py" beforeDir="false" afterPath="$PROJECT_DIR$/headspace.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GANs/SGan/sgan.py" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/SGan/sgan.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,17 +28,18 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/GANs/DCGan" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/GANs/LSGan" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\Merger_Catalouge_Creation" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\GANs\SGan" />
       <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\GANs\DCGan" />
       <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code" />
       <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\CNN_python" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\Merger_Catalouge_Creation" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -52,7 +54,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.dcgan">
+  <component name="RunManager" selected="Python.sgan">
     <configuration name="Nathans_Oversampled_CNN" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Code" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -66,27 +68,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CNN_python/Nathans_Oversampled_CNN.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="_NOC_Utils" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Code" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CNN_python" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CNN_python/_NOC_Utils.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -158,13 +139,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="sgan" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GANs/SGan" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GANs/SGan/sgan.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.sgan" />
         <item itemvalue="Python.dcgan" />
         <item itemvalue="Python.headspace" />
         <item itemvalue="Python.gan" />
         <item itemvalue="Python.Nathans_Oversampled_CNN" />
-        <item itemvalue="Python._NOC_Utils" />
       </list>
     </recent_temporary>
   </component>
@@ -224,7 +226,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
