@@ -11,26 +11,34 @@ from keras.optimizers import Adam
 import matplotlib.pyplot as plt
 
 import sys
+import os
 
 import numpy as np
+import pandas as pd
+
+from _gan_util import create_image_tensor_on_path
+os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 class LSGAN():
-    def __init__(self):
-        self.img_rows = 28
-        self.img_cols = 28
-        self.channels = 1
+    def __init__(self, img_rows, img_cols, channels):
+        self.img_rows = img_rows
+        self.img_cols = img_cols
+        self.channels = channels
         self.img_shape = (self.img_rows, self.img_cols, self.channels)
         self.latent_dim = 100
 
         optimizer = Adam(0.0002, 0.5)
 
         # Build and compile the discriminator
+        print("Discriminator Break Down")
         self.discriminator = self.build_discriminator()
         self.discriminator.compile(loss='mse',
             optimizer=optimizer,
             metrics=['accuracy'])
 
         # Build the generator
+        print("Generator Breakdown")
         self.generator = self.build_generator()
 
         # The generator takes noise as input and generated imgs
@@ -53,7 +61,10 @@ class LSGAN():
 
         model = Sequential()
 
-        model.add(Dense(256, input_dim=self.latent_dim))
+        model.add(Dense(128, input_dim=self.latent_dim))
+        model.add(LeakyReLU(alpha=0.2))
+        model.add(BatchNormalization(momentum=0.8))
+        model.add(Dense(256))
         model.add(LeakyReLU(alpha=0.2))
         model.add(BatchNormalization(momentum=0.8))
         model.add(Dense(512))
@@ -90,14 +101,26 @@ class LSGAN():
 
         return Model(img, validity)
 
-    def train(self, epochs, batch_size=128, sample_interval=50):
+    def train(self, epochs, batch_size=128, sample_interval=50, dataset="Mnist", lable_col="", training_label=""):
 
         # Load the dataset
-        (X_train, _), (_, _) = mnist.load_data()
+        if dataset == "Mnist":
+            (X_train, _), (_, _) = mnist.load_data()
+            # Rescale -1 to 1
+            X_train = X_train / 127.5 - 1.
+            X_train = np.expand_dims(X_train, axis=3)
+            # Rescale -1 to 1
+            X_train = (X_train.astype(np.float32) - 127.5) / 127.5
+            X_train = np.expand_dims(X_train, axis=3)
+        # Load Real data
+        else:
+            path = os.path.join(dataset)
+            data = pd.read_csv(path)
+            data = data[data.EXPERT == training_label]
+            # This function does the -1 to 1 rescale in the read in.
+            X_train = create_image_tensor_on_path(data[lable_col], self.img_shape, extra_path_details="..\\..")
 
-        # Rescale -1 to 1
-        X_train = (X_train.astype(np.float32) - 127.5) / 127.5
-        X_train = np.expand_dims(X_train, axis=3)
+
 
         # Adversarial ground truths
         valid = np.ones((batch_size, 1))
@@ -150,13 +173,14 @@ class LSGAN():
         cnt = 0
         for i in range(r):
             for j in range(c):
-                axs[i,j].imshow(gen_imgs[cnt, :,:,0], cmap='gray')
+                axs[i,j].imshow(gen_imgs[cnt, :,:])
                 axs[i,j].axis('off')
                 cnt += 1
-        fig.savefig("images/mnist_%d.png" % epoch)
+        fig.savefig("images/mergers_%d.png" % epoch)
         plt.close()
 
 
 if __name__ == '__main__':
-    gan = LSGAN()
-    gan.train(epochs=30000, batch_size=32, sample_interval=200)
+    gan = LSGAN(64, 64, 3)
+    gan.train(epochs=10000, batch_size=32, sample_interval=200, training_label="M", lable_col="Paths",
+              dataset="..\\..\\..\\Data\\__CSV__\\GZ1_Full_Expert_Paths.csv")

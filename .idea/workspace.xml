@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="23e380af-d871-47fe-a9d2-da97d4b5aaea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/GANs/LSGan/_gan_util.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GANs/SGan/_gan_util.py" afterDir="false" />
+    <list default="true" id="23e380af-d871-47fe-a9d2-da97d4b5aaea" name="Default Changelist" comment="Have once again reworked the oversampler. This is because I think i have found a lighter way of not reinventing the wheel. Who Knows.">
+      <change afterPath="$PROJECT_DIR$/Merger_Catalouge_Creation/StyleGAN_Data_Move.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GANs/DCGan/dcgan.py" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/DCGan/dcgan.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GANs/LSGan/lsgan.py" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/LSGan/lsgan.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GANs/SGan/sgan.py" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/SGan/sgan.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Merger_Catalouge_Creation/Image_Seperation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Merger_Catalouge_Creation/Image_Seperation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Merger_Catalouge_Creation/_preproces_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Merger_Catalouge_Creation/_preproces_utils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,14 +33,15 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\Merger_Catalouge_Creation" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\GANs\LSGan" />
       <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\GANs\SGan" />
       <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\GANs\DCGan" />
       <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code" />
       <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\CNN_python" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\Merger_Catalouge_Creation" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -54,8 +56,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.sgan">
-    <configuration name="Nathans_Oversampled_CNN" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.stylegan">
+    <configuration name="StyleGAN_Data_Move" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Code" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -63,11 +65,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CNN_python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Merger_Catalouge_Creation" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CNN_python/Nathans_Oversampled_CNN.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Merger_Catalouge_Creation/StyleGAN_Data_Move.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -76,7 +78,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="dcgan" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="lsgan" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Code" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -84,53 +86,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GANs/DCGan" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GANs/LSGan" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GANs/DCGan/dcgan.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="gan" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Code" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GANs/Gan" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GANs/Gan/gan.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="headspace" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Code" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/headspace.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GANs/LSGan/lsgan.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -160,13 +120,55 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="stylegan" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GANs/StyleGAN" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GANs/StyleGAN/stylegan.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="train" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GANs/stylegan" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GANs/stylegan/train.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.stylegan" />
+        <item itemvalue="Python.StyleGAN_Data_Move" />
+        <item itemvalue="Python.train" />
+        <item itemvalue="Python.lsgan" />
         <item itemvalue="Python.sgan" />
-        <item itemvalue="Python.dcgan" />
-        <item itemvalue="Python.headspace" />
-        <item itemvalue="Python.gan" />
-        <item itemvalue="Python.Nathans_Oversampled_CNN" />
       </list>
     </recent_temporary>
   </component>

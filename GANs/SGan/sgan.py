@@ -201,7 +201,7 @@ class SGAN:
                 axs[i,j].imshow(gen_imgs[cnt, :, :])
                 axs[i,j].axis('off')
                 cnt += 1
-        fig.savefig("images/mnist_%d.png" % epoch)
+        fig.savefig("images/mergers_%d.png" % epoch)
         plt.close()
 
     def save_model(self):
@@ -215,9 +215,9 @@ class SGAN:
             open(options['file_arch'], 'w').write(json_string)
             model.save_weights(options['file_weight'])
 
-        save(self.generator, "mnist_sgan_generator")
-        save(self.discriminator, "mnist_sgan_discriminator")
-        save(self.combined, "mnist_sgan_adversarial")
+        save(self.generator, "galaxy_sgan_generator")
+        save(self.discriminator, "galaxy_sgan_discriminator")
+        save(self.combined, "galaxy_sgan_adversarial")
 
 
 if __name__ == '__main__':
