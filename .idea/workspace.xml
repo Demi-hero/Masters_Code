@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23e380af-d871-47fe-a9d2-da97d4b5aaea" name="Default Changelist" comment="Have once again reworked the oversampler. This is because I think i have found a lighter way of not reinventing the wheel. Who Knows.">
-      <change afterPath="$PROJECT_DIR$/Merger_Catalouge_Creation/StyleGAN_Data_Move.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GANs/DCGan/dcgan.py" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/DCGan/dcgan.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GANs/Gan/gan.py" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/Gan/gan.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GANs/LSGan/lsgan.py" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/LSGan/lsgan.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GANs/SGan/sgan.py" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/SGan/sgan.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Merger_Catalouge_Creation/Image_Seperation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Merger_Catalouge_Creation/Image_Seperation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Merger_Catalouge_Creation/_preproces_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Merger_Catalouge_Creation/_preproces_utils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

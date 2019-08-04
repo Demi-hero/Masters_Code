@@ -194,8 +194,24 @@ class DCGAN:
         fig.savefig("col_images/generated_%d.png" % epoch)
         plt.close()
 
+    def save_model(self):
+
+        def save(model, model_name):
+            model_path = "saved_model/%s.json" % model_name
+            weights_path = "saved_model/%s_weights.hdf5" % model_name
+            options = {"file_arch": model_path,
+                        "file_weight": weights_path}
+            json_string = model.to_json()
+            open(options['file_arch'], 'w').write(json_string)
+            model.save_weights(options['file_weight'])
+
+        save(self.generator, "galaxy_dcgan_generator")
+        save(self.discriminator, "galaxy_dcgan_discriminator")
+        save(self.combined, "galaxy_dcgan_adversarial")
+
 
 if __name__ == '__main__':
     dcgan = DCGAN(img_rows=64, img_cols=64, channels=3)
     dcgan.train(epochs=4000, batch_size=32, save_interval=50, training_label="M", lable_col="Paths",
                 dataset="..\\..\\..\\Data\\__CSV__\\GZ1_Full_Expert_Paths.csv")
+    dcgan.save_model()

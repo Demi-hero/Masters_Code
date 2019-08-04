@@ -170,10 +170,27 @@ class GAN:
         fig.savefig("images/%d.png" % epoch)
         plt.close()
 
+    def save_model(self):
+
+        def save(model, model_name):
+            model_path = "saved_model/%s.json" % model_name
+            weights_path = "saved_model/%s_weights.hdf5" % model_name
+            options = {"file_arch": model_path,
+                        "file_weight": weights_path}
+            json_string = model.to_json()
+            open(options['file_arch'], 'w').write(json_string)
+            model.save_weights(options['file_weight'])
+
+        save(self.generator, "galaxy_gan_generator")
+        save(self.discriminator, "galaxy_gan_discriminator")
+        save(self.combined, "galaxy_gan_adversarial")
+
 
 if __name__ == '__main__':
     file = "D:\\Documents\\Comp Sci Masters\\Project_Data\\Data\\__CSV__\\GZ1_Full_Expert_Paths.csv"
     gan = GAN(64, 64, 3)
     gan.train(epochs=30000, training_lable='M', batch_size=32, sample_interval=200,
               dataset_path=file)
+    # I wonder which one will be better
     gan.save("Saved_Model/Vanilla_Model.h5")
+    gan.save_model()

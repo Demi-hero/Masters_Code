@@ -224,4 +224,4 @@ if __name__ == '__main__':
     sgan = SGAN(img_cols=64, img_rows=64, channels=3)
     sgan.train(epochs=20000, batch_size=32, sample_interval=50,
                dataset="..\\..\\..\\Data\\__CSV__\\GZ1_Full_Expert_Paths.csv")
-
+    sgan.save_model()
