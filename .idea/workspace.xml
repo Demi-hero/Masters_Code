@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="23e380af-d871-47fe-a9d2-da97d4b5aaea" name="Default Changelist" comment="Have once again reworked the oversampler. This is because I think i have found a lighter way of not reinventing the wheel. Who Knows.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CNN_python/Nathans_Oversampled_CNN.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN_python/Nathans_Oversampled_CNN.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CNN_python/_NOC_Utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN_python/_NOC_Utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GANs/SGan/sgan.py" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/SGan/sgan.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CNN_python/Nathans_CNN.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN_python/Nathans_CNN.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

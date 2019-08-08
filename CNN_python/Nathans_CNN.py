@@ -31,8 +31,7 @@ trial_name = 'Conv128_GZ1_Validation_BW-64x'
 if colour_channels == 3:
     trial_name = 'Conv128_GZ1_Validation_RGB-64x_Trial'
 
-image_tuple   = (64, 64, colour_channels)
-images_folder = "Blended_Image_Catalouge_tiff"
+image_tuple = (64, 64, colour_channels)
 images_csv = "GZ1_Full_Expert_Paths.csv"
 ###################################################################################################
 # ==================================================================================================
@@ -45,7 +44,7 @@ id_path = os.path.join(CWD, csv_root, images_csv)
 image_ids = pd.read_csv(id_path)
 
 # Uncomment for when running tests
-image_ids = image_ids[:1000]
+# image_ids = image_ids[:1000]
 
 tprs = []
 aucs = []
@@ -84,7 +83,7 @@ for test_partition in range(1, 6):
     # Autoencoder setting and training:
     CNN = Conv128_3_NN(image_tuple)
     # Look in to Epoc Value. Once
-    CNN.train(train_images, train_binary_labels, val_images, val_binary_labels, epochs=1)
+    CNN.train(train_images, train_binary_labels, val_images, val_binary_labels, epochs=100)
 
     # Output log file:
     train_time = CNN.trial_log(output_folder, trial_name, test_partition=test_partition)
