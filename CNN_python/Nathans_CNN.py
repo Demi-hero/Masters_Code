@@ -1,9 +1,12 @@
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
+from scipy import interp
 import cv2
 import os
 import sys
 from sklearn.utils import shuffle
+from sklearn.metrics import roc_curve, auc
 from _NOC_Utils import *
 from Convolutional_CNN import Conv128_3_NN
 
@@ -43,6 +46,10 @@ image_ids = pd.read_csv(id_path)
 
 # Uncomment for when running tests
 image_ids = image_ids[:1000]
+
+tprs = []
+aucs = []
+mean_fpr = np.linspace(0, 1, 100)
 for test_partition in range(1, 6):
 
     # create the train/test/val trio
@@ -59,16 +66,16 @@ for test_partition in range(1, 6):
 
     # Binary Lable Creation can I make this bit smaller?
     train_binary_labels = np.array(train['EXPERT'], dtype=str)
-    test_binary_labels = np.array(test["EXPERT"], dtype=str)
-    val_binary_lables = np.array(val["EXPERT"], dtype=str)
+    val_binary_labels = np.array(val["EXPERT"], dtype=str)
+    test_binary_lables = np.array(test["EXPERT"], dtype=str)
     train_binary_labels = convert_labels_expert(train_binary_labels, double_column=True)
-    test_binary_labels = convert_labels_expert(test_binary_labels, double_column=True)
-    val_binary_lables = convert_labels_expert(val_binary_lables, double_column=True)
+    val_binary_labels = convert_labels_expert(val_binary_labels, double_column=True)
+    test_binary_lables = convert_labels_expert(test_binary_lables, double_column=True)
 
     # the tensor read ins.
     train_images = create_image_tensor_on_path(train.Paths, image_tuple, extra_path_details="..")
-    test_images = create_image_tensor_on_path(test.Paths, image_tuple, extra_path_details="..")
     val_images = create_image_tensor_on_path(val.Paths, image_tuple, extra_path_details="..")
+    test_images = create_image_tensor_on_path(test.Paths, image_tuple, extra_path_details="..")
 
     # the machine learning part
     print('\n\n  >> ' + trial_name)
@@ -77,18 +84,32 @@ for test_partition in range(1, 6):
     # Autoencoder setting and training:
     CNN = Conv128_3_NN(image_tuple)
     # Look in to Epoc Value. Once
-    CNN.train(train_images, train_binary_labels, test_images, test_binary_labels, epochs=1)
+    CNN.train(train_images, train_binary_labels, val_images, val_binary_labels, epochs=1)
 
     # Output log file:
     train_time = CNN.trial_log(output_folder, trial_name, test_partition=test_partition)
 
     # Test predictions and classification results:
-    predictions = CNN.model.predict(val_images)
+    predictions = CNN.model.predict(test_images)
 
-    classification_performance(train_images, predictions, val_binary_lables, train_time, output_folder,
+    classification_performance(train_images, predictions, test_binary_lables, train_time, output_folder,
                                trial_name, test_partition)
 
-    save_predictions_CNN(val, predictions, test_partition, output_folder, trial_name)
+    save_predictions_CNN(test, predictions, test_partition, output_folder, trial_name)
 
+
+
+    rpreds = round_to_single_column(predictions)
+    rtbl = round_to_single_column(test_binary_lables)
+
+    fpr, tpr, thresholds = roc_curve(rtbl, rpreds)
+    tprs.append(interp(mean_fpr, fpr, tpr))
+    tprs[-1][0] = 0.0
+    roc_auc = auc(fpr, tpr)
+    aucs.append(roc_auc)
+    plt.plot(fpr, tpr, lw=1, alpha=0.3,
+             label='ROC fold %d (AUC = %0.2f)' % (test_partition, roc_auc))
+
+plot_mean_roc_curve(tprs, mean_fpr, aucs, output_folder, trial_name)
 
 

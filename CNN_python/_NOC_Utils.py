@@ -3,8 +3,9 @@ import pandas as pd
 import cv2
 import os
 import sys
+import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import roc_auc_score
+from sklearn.metrics import roc_auc_score, roc_curve, auc
 from imblearn.over_sampling import RandomOverSampler
 from imblearn.under_sampling import RandomUnderSampler
 
@@ -18,9 +19,9 @@ def cross_fold_train_test_split(image_ids, partition, n_splits=5, test_size=0.2)
     end_point = start_point + data_partitions[partition - 1]
 
     training_set = pd.concat([image_ids.iloc[0:start_point], image_ids.iloc[end_point:]],axis=0)
-    validation = image_ids.iloc[start_point : end_point]
+    testing = image_ids.iloc[start_point : end_point]
 
-    training, testing = train_test_split(training_set, test_size=test_size)
+    training, validation = train_test_split(training_set, test_size=test_size)
     return training, testing, validation
 
 
@@ -362,3 +363,35 @@ def Geometric_Mean(confusion_matrix):
     else:
         g_mean = np.sqrt((TP/(TP + FN)) * (TN / (FP + TN)))
     return round(g_mean, 4)
+
+def plot_mean_roc_curve(tprs, mean_fpr, aucs, output_path, output_name):
+    # This code was adapted from the sklearn examples page
+    # https://scikit-learn.org/stable/auto_examples/model_selection/plot_roc_crossval.html
+    plt.plot([0, 1], [0, 1], linestyle='--', lw=2, color='r',
+             label='Chance', alpha=.8)
+
+    mean_tpr = np.mean(tprs, axis=0)
+    mean_tpr[-1] = 1.0
+    mean_auc = auc(mean_fpr, mean_tpr)
+    std_auc = np.std(aucs)
+    plt.plot(mean_fpr, mean_tpr, color='b',
+             label=r'Mean ROC (AUC = %0.2f $\pm$ %0.2f)' % (mean_auc, std_auc),
+             lw=2, alpha=.8)
+
+    std_tpr = np.std(tprs, axis=0)
+    tprs_upper = np.minimum(mean_tpr + std_tpr, 1)
+    tprs_lower = np.maximum(mean_tpr - std_tpr, 0)
+    plt.fill_between(mean_fpr, tprs_lower, tprs_upper, color='grey', alpha=.2,
+                     label=r'$\pm$ 1 std. dev.')
+
+    plt.xlim([-0.05, 1.05])
+    plt.ylim([-0.05, 1.05])
+    plt.xlabel('False Positive Rate')
+    plt.ylabel('True Positive Rate')
+    plt.title('Receiver operating characteristic example')
+    plt.legend(loc="lower right")
+
+    name = output_name + '_agg_roc_curve.tiff'
+    roc_curve_path = os.path.join(output_path, name)
+
+    plt.savefig(roc_curve_path)
