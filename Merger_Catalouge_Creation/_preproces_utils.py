@@ -1,5 +1,6 @@
 import os
 import shutil
+import sys
 
 def zero_placer(base, overall_length=8):
     length = len(str(base))
@@ -66,3 +67,18 @@ def expert_label_renamer(row):
     else:
         pass
 
+
+def move_and_name_change(source,destination, suffix):
+    # Copy files from one place to another changing their name to img (int).suffix
+    counter = 1
+    for root, dirs,files in os.walk(source):
+        try:
+            for file in files:
+                src = os.path.join(root, file)
+                dest = os.path.join(destination,f"im ({counter}).{suffix}")
+                shutil.copy(src, dest)
+                counter += 1
+                if counter % 1000 == 0:
+                    print(f"{counter} images moved")
+        except FileNotFoundError:
+            print(f"File {file} not found")
