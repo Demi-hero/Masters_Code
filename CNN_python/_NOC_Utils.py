@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import roc_auc_score, roc_curve, auc
 from imblearn.over_sampling import RandomOverSampler
 from imblearn.under_sampling import RandomUnderSampler
-
+from keras.models import model_from_json
 from datetime import datetime
 
 
@@ -367,6 +367,7 @@ def Geometric_Mean(confusion_matrix):
 def plot_mean_roc_curve(tprs, mean_fpr, aucs, output_path, output_name):
     # This code was adapted from the sklearn examples page
     # https://scikit-learn.org/stable/auto_examples/model_selection/plot_roc_crossval.html
+    plt.figure(1)
     plt.plot([0, 1], [0, 1], linestyle='--', lw=2, color='r',
              label='Chance', alpha=.8)
 
@@ -374,6 +375,7 @@ def plot_mean_roc_curve(tprs, mean_fpr, aucs, output_path, output_name):
     mean_tpr[-1] = 1.0
     mean_auc = auc(mean_fpr, mean_tpr)
     std_auc = np.std(aucs)
+    plt.figure(1)
     plt.plot(mean_fpr, mean_tpr, color='b',
              label=r'Mean ROC (AUC = %0.2f $\pm$ %0.2f)' % (mean_auc, std_auc),
              lw=2, alpha=.8)
@@ -395,3 +397,17 @@ def plot_mean_roc_curve(tprs, mean_fpr, aucs, output_path, output_name):
     roc_curve_path = os.path.join(output_path, name)
 
     plt.savefig(roc_curve_path)
+
+def read_in_gan_json_model(model_path, model_name, weight_name):
+    # creates a model from a json file and h5 weight file in the same directory
+    js = os.path.join(model_path, model_name)
+    weigths = os.path.join(model_path, weight_name)
+    json_file = open(js,"r")
+    loaded = json_file.read()
+    json_file.close()
+    model = model_from_json(loaded)
+    model.load_weights(weigths)
+
+    return model
+
+

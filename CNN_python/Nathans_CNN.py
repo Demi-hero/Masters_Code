@@ -44,7 +44,7 @@ id_path = os.path.join(CWD, csv_root, images_csv)
 image_ids = pd.read_csv(id_path)
 
 # Uncomment for when running tests
-# image_ids = image_ids[:1000]
+image_ids = image_ids[:1000]
 
 tprs = []
 aucs = []
@@ -83,7 +83,7 @@ for test_partition in range(1, 6):
     # Autoencoder setting and training:
     CNN = Conv128_3_NN(image_tuple)
     # Look in to Epoc Value. Once
-    CNN.train(train_images, train_binary_labels, val_images, val_binary_labels, epochs=100)
+    CNN.train(train_images, train_binary_labels, val_images, val_binary_labels, epochs=1)
 
     # Output log file:
     train_time = CNN.trial_log(output_folder, trial_name, test_partition=test_partition)
@@ -96,18 +96,21 @@ for test_partition in range(1, 6):
 
     save_predictions_CNN(test, predictions, test_partition, output_folder, trial_name)
 
-
-
+    # Plotting the ROC AUC for this instance.
     rpreds = round_to_single_column(predictions)
     rtbl = round_to_single_column(test_binary_lables)
-
     fpr, tpr, thresholds = roc_curve(rtbl, rpreds)
     tprs.append(interp(mean_fpr, fpr, tpr))
     tprs[-1][0] = 0.0
     roc_auc = auc(fpr, tpr)
     aucs.append(roc_auc)
+    plt.figure(1)
     plt.plot(fpr, tpr, lw=1, alpha=0.3,
              label='ROC fold %d (AUC = %0.2f)' % (test_partition, roc_auc))
+    name = f"ROC_fold_{test_partition} (AUC = {roc_auc}).png"
+    curve_path = os.path.join("D:\Documents\Comp Sci Masters\Project_Data\Data\CNN_Conv128_GZ1_Validation_RGB-64x_Trial",
+                              name)
+    plt.savefig(curve_path)
 
 plot_mean_roc_curve(tprs, mean_fpr, aucs, output_folder, trial_name)
 

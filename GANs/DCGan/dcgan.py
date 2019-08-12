@@ -9,12 +9,11 @@ from keras.models import Sequential, Model
 from keras.optimizers import Adam
 
 import os
+import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from _gan_util import create_image_tensor_on_path
 import sys
-
-import numpy as np
 
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
@@ -168,11 +167,6 @@ class DCGAN:
             if epoch % save_interval == 0:
                 self.save_imgs(epoch)
 
-        gen_path = os.path.join(self.save_loc, "dcgan_gen.h5")
-        self.generator.save(gen_path)
-        dis_path = os.path.join(self.save_loc, "dcgan_disc.h5")
-        self.discriminator.save(dis_path)
-
     def save_imgs(self, epoch):
         r, c = 5, 5
         noise = np.random.normal(0, 1, (r * c, self.latent_dim))
@@ -204,6 +198,7 @@ class DCGAN:
             json_string = model.to_json()
             open(options['file_arch'], 'w').write(json_string)
             model.save_weights(options['file_weight'])
+            model.save("saved_model/%s_full_system.hdf5" % model_name)
 
         save(self.generator, "galaxy_dcgan_generator")
         save(self.discriminator, "galaxy_dcgan_discriminator")
