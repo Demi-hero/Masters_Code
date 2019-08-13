@@ -207,6 +207,6 @@ class DCGAN:
 
 if __name__ == '__main__':
     dcgan = DCGAN(img_rows=64, img_cols=64, channels=3)
-    dcgan.train(epochs=4000, batch_size=32, save_interval=50, training_label="M", lable_col="Paths",
+    dcgan.train(epochs=3000, batch_size=32, save_interval=50, training_label="M", lable_col="Paths",
                 dataset="..\\..\\..\\Data\\__CSV__\\GZ1_Full_Expert_Paths.csv")
     dcgan.save_model()

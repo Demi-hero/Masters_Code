@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import os
 import cv2
-from keras.datasets import mnist
+# from keras.datasets import mnist
 import sys
 #import time
 #from datetime import datetime
@@ -133,6 +133,13 @@ print(extras)
 
 
 """
-
-for i in ["Alpha", "Beta"]:
-    print(i)
+new_row = {"OBJID": "00000",
+           "Source_Lables": "M",
+           "EXPERT": "M",
+           "Paths": "Path"}
+df = pd.DataFrame({"OBJID": "00000",
+           "Source_Lables": "M",
+           "EXPERT": "M",
+           "Paths": "Path"}, columns=['OBJID', 'Source_Lables', 'EXPERT', 'Paths'])
+df.append(new_row, ignore_index=True)
+print(df)
