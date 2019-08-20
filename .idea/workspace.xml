@@ -2,17 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23e380af-d871-47fe-a9d2-da97d4b5aaea" name="Default Changelist" comment="Have once again reworked the oversampler. This is because I think i have found a lighter way of not reinventing the wheel. Who Knows.">
-      <change afterPath="$PROJECT_DIR$/Preprocessing/gan_mod_load_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CNN_python/Image_Generator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GANs/DCGan/Saved_Model/galaxy_dcgan_adversarial_full_system.hdf5" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/DCGan/Saved_Model/galaxy_dcgan_adversarial_full_system.hdf5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GANs/DCGan/Saved_Model/galaxy_dcgan_adversarial_weights.hdf5" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/DCGan/Saved_Model/galaxy_dcgan_adversarial_weights.hdf5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GANs/DCGan/Saved_Model/galaxy_dcgan_discriminator_full_system.hdf5" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/DCGan/Saved_Model/galaxy_dcgan_discriminator_full_system.hdf5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GANs/DCGan/Saved_Model/galaxy_dcgan_discriminator_weights.hdf5" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/DCGan/Saved_Model/galaxy_dcgan_discriminator_weights.hdf5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GANs/DCGan/Saved_Model/galaxy_dcgan_generator_full_system.hdf5" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/DCGan/Saved_Model/galaxy_dcgan_generator_full_system.hdf5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GANs/DCGan/Saved_Model/galaxy_dcgan_generator_weights.hdf5" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/DCGan/Saved_Model/galaxy_dcgan_generator_weights.hdf5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GANs/DCGan/_gan_util.py" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/DCGan/_gan_util.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GANs/DCGan/dcgan.py" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/DCGan/dcgan.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gan_mod_load_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CNN_python/Nathans_CNN.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN_python/Nathans_CNN.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CNN_python/_NOC_Utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN_python/_NOC_Utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Preprocessing/Data_Augmentation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Preprocessing/Data_Augmentation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Preprocessing/gan_img_gen.py" beforeDir="false" afterPath="$PROJECT_DIR$/gan_img_gen.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/headspace.py" beforeDir="false" afterPath="$PROJECT_DIR$/headspace.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,6 +35,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code" />
       <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\Preprocessing" />
       <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\Merger_Catalouge_Creation" />
     </key>
@@ -63,7 +59,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.headspace">
+  <component name="RunManager" selected="Python.Nathans_CNN">
+    <configuration name="Data_Augmentation" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Preprocessing" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Preprocessing/Data_Augmentation.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Nathans_CNN" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Code" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -85,49 +102,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Nathans_Oversampled_CNN" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Code" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CNN_python" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CNN_python/Nathans_Oversampled_CNN.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="dcgan" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Code" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GANs/DCGan" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GANs/DCGan/dcgan.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="gan_mod_load_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="gan_img_gen (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Code" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -139,7 +114,28 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\Preprocessing\gan_mod_load_test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gan_img_gen.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="gan_img_gen" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Preprocessing" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\gan_img_gen.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -171,11 +167,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.headspace" />
-        <item itemvalue="Python.gan_mod_load_test" />
-        <item itemvalue="Python.dcgan" />
         <item itemvalue="Python.Nathans_CNN" />
-        <item itemvalue="Python.Nathans_Oversampled_CNN" />
+        <item itemvalue="Python.headspace" />
+        <item itemvalue="Python.gan_img_gen (1)" />
+        <item itemvalue="Python.Data_Augmentation" />
+        <item itemvalue="Python.gan_img_gen" />
       </list>
     </recent_temporary>
   </component>

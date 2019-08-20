@@ -364,6 +364,7 @@ def Geometric_Mean(confusion_matrix):
         g_mean = np.sqrt((TP/(TP + FN)) * (TN / (FP + TN)))
     return round(g_mean, 4)
 
+
 def plot_mean_roc_curve(tprs, mean_fpr, aucs, output_path, output_name):
     # This code was adapted from the sklearn examples page
     # https://scikit-learn.org/stable/auto_examples/model_selection/plot_roc_crossval.html
@@ -398,6 +399,7 @@ def plot_mean_roc_curve(tprs, mean_fpr, aucs, output_path, output_name):
 
     plt.savefig(roc_curve_path)
 
+
 def read_in_gan_json_model(model_path, model_name, weight_name):
     # creates a model from a json file and h5 weight file in the same directory
     js = os.path.join(model_path, model_name)
@@ -411,3 +413,29 @@ def read_in_gan_json_model(model_path, model_name, weight_name):
     return model
 
 
+def augmentation_oversample(augmented_data, test_ids, samples_needed, num_of_augments=20):
+    # Oversamples from a pool of augmented images
+    added_data = 0
+    final_data = pd.DataFrame(columns=['OBJID', 'Source_Lables', 'EXPERT', 'Paths'])
+    while 1:
+        for test_id in test_ids:
+            check_id = str(test_id) + "_0"
+            if check_id in list(augmented_data.OBJID):
+                augments = np.random.randint(0, num_of_augments)
+                for augs in range(0,augments+1):
+                    used_id = str(test_id) + "_{}".format(augs)
+                    data = augmented_data[augmented_data.OBJID == used_id]
+                    final_data = final_data.append(data)
+                    added_data += 1
+                    if added_data % 100 == 0:
+                        print("Added {current} images out of {total}".format(current=added_data, total=samples_needed))
+                    if added_data > samples_needed:
+                        return final_data
+
+
+def dual_shuffle(array1, array2, seed):
+    np.random.seed(seed)
+    state = np.random.get_state()
+    np.random.shuffle(array1)
+    np.random.set_state(state)
+    np.random.shuffle(array2)

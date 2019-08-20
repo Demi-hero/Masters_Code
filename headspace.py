@@ -132,14 +132,53 @@ extras = undersample(paths, paths.EXPERT, list(paths), final_dataset_size=10000,
 print(extras)
 
 
-"""
-new_row = {"OBJID": "00000",
+def augmentation_oversample(augmented_data, test_ids, samples_needed, num_of_augments=20):
+    #This is important for some reason...
+    added_data = 0
+    final_data = pd.DataFrame(columns=['OBJID', 'Source_Lables', 'EXPERT', 'Paths'])
+    while added_data < samples_needed:
+        for test_id in test_ids:
+            check_id = str(test_id) + "_0"
+            if check_id in list(augmented_data.OBJID):
+                print("I was found in the list")
+                #augments = np.random.randint(0, num_of_augments)
+                augments= [0, 1]
+                for augs in range(0, augments+1):
+                    used_id = str(test_id) + "_{}".format(augs)
+                    data = augmented_data[augmented_data.OBJID == used_id]
+                    final_data = final_data.append(data)
+                    added_data += 1
+                if added_data > samples_needed:
+                    break
+    return final_data
+
+test_row = {"OBJID": "00005",
            "Source_Lables": "M",
            "EXPERT": "M",
            "Paths": "Path"}
-df = pd.DataFrame({"OBJID": "00000",
-           "Source_Lables": "M",
-           "EXPERT": "M",
-           "Paths": "Path"}, columns=['OBJID', 'Source_Lables', 'EXPERT', 'Paths'])
-df.append(new_row, ignore_index=True)
-print(df)
+df = pd.DataFrame({"OBJID": ["00001_0", "00002_0", "00002_1", "00003_0", "00004_0", "00005_0", "00005_1"],
+           "Source_Lables": ["M", "M", "M", "M", "M", "M", "M"],
+           "EXPERT": ["M", "M", "M", "M", "M", "M", "M"],
+           "Paths": ["Path1", "Path2_0", "Path2_1", "Path3", "Path4", "Path5_0", "Path5_1"]},
+                  columns=['OBJID', 'Source_Lables', 'EXPERT', 'Paths'])
+
+test_ids = ['00005', "00002"]
+
+op = augmentation_oversample(df, test_ids, num_of_augments=1)
+print(op)
+"""
+def dual_shuffle(array1, array2, seed):
+    np.random.seed(seed)
+    state = np.random.get_state()
+    np.random.shuffle(array1)
+    np.random.set_state(state)
+    np.random.shuffle(array2)
+
+
+arr1 = np.array([[1,2],[3,4],[5,6]])
+arr2 = np.array([[1,2],[3,4],[5,6]])
+
+dual_shuffle(arr1, arr2, 15)
+
+print(arr1)
+print(arr2)
