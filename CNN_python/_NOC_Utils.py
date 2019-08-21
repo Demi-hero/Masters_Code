@@ -419,18 +419,16 @@ def augmentation_oversample(augmented_data, test_ids, samples_needed, num_of_aug
     final_data = pd.DataFrame(columns=['OBJID', 'Source_Lables', 'EXPERT', 'Paths'])
     while 1:
         for test_id in test_ids:
-            check_id = str(test_id) + "_0"
-            if check_id in list(augmented_data.OBJID):
-                augments = np.random.randint(0, num_of_augments)
-                for augs in range(0,augments+1):
-                    used_id = str(test_id) + "_{}".format(augs)
-                    data = augmented_data[augmented_data.OBJID == used_id]
-                    final_data = final_data.append(data)
-                    added_data += 1
-                    if added_data % 100 == 0:
-                        print("Added {current} images out of {total}".format(current=added_data, total=samples_needed))
-                    if added_data > samples_needed:
-                        return final_data
+            augments = np.random.randint(0, num_of_augments)
+            for augs in range(0,augments+1):
+                used_id = str(test_id) + "_{}".format(augs)
+                data = augmented_data[augmented_data.OBJID == used_id]
+                final_data = final_data.append(data)
+                added_data += 1
+                if added_data % 100 == 0:
+                    print("Added {current} images out of {total}".format(current=added_data, total=samples_needed))
+                if added_data > samples_needed:
+                    return final_data
 
 
 def dual_shuffle(array1, array2, seed):

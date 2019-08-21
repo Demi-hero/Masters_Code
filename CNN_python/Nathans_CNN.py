@@ -9,7 +9,7 @@ from sklearn.utils import shuffle
 from sklearn.metrics import roc_curve, auc
 from _NOC_Utils import *
 from Convolutional_CNN import Conv128_3_NN
-from Image_Generator import Dcgan_Merger_Generator
+from Image_Generator import Merger_Generator
 
 colour_channels = 3
 image_tuple = (64, 64, colour_channels)
@@ -66,13 +66,13 @@ for test_partition in range(1, 6):
     # train = shuffle(train)
 
     # Uncomment to select augemented images oversampling
-    #aug_path = os.path.join(CWD, csv_root, aug_csv)
-    #samples_needed= len(train) - len(train[train.EXPERT == "M"])*2
-    #aug_source = pd.read_csv(aug_path)
-    #tm = train[train['EXPERT']== 'M']
-    #aug_samples = augmentation_oversample(aug_source, tm.OBJID, samples_needed)
-    #train = train.append(aug_samples)
-    #train = shuffle(train)
+    aug_path = os.path.join(CWD, csv_root, aug_csv)
+    samples_needed= len(train) - len(train[train.EXPERT == "M"])*2
+    aug_source = pd.read_csv(aug_path)
+    tm = train[train['EXPERT']== 'M']
+    aug_samples = augmentation_oversample(aug_source, tm.OBJID, samples_needed)
+    train = train.append(aug_samples)
+    train = shuffle(train)
 
     # Binary Lable Creation can I make this bit smaller?
     train_binary_labels = np.array(train['EXPERT'], dtype=str)
@@ -88,27 +88,27 @@ for test_partition in range(1, 6):
 
     # Uncomment using the GAN generator for oversampling
     # using json for structure and h5 for weights.
-    json_path = 'D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\GANs\DCGan\Saved_Model\galaxy_dcgan_generator.json'
-    weight_path = 'D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\GANs\DCGan\Saved_Model\galaxy_dcgan_generator_weights.hdf5'
-    merger_maker = Dcgan_Merger_Generator(json_path, weight_path)
+    #json_path = 'D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\GANs\DCGan\Saved_Model\galaxy_dcgan_generator.json'
+    #weight_path = 'D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\GANs\DCGan\Saved_Model\galaxy_dcgan_generator_weights.hdf5'
+    #merger_maker = Merger_Generator(json_path, weight_path)
     # calculate how many images needed to reach 1:1 ratio in training
-    samples_needed = len(train) - len(train[train.EXPERT == "M"]) * 2
+    #samples_needed = len(train) - len(train[train.EXPERT == "M"]) * 2
     # Generate and append a needed Merger binary vals.
-    app_array = np.zeros((samples_needed, 2), dtype=int)
-    for i in range(0, samples_needed):
-        app_array[i, 1] = 1
-    train_binary_labels = np.vstack((train_binary_labels,app_array))
+    #app_array = np.zeros((samples_needed, 2), dtype=int)
+    #for i in range(0, samples_needed):
+    #    app_array[i, 1] = 1
+    #train_binary_labels = np.vstack((train_binary_labels,app_array))
     # Generate and append the new images
-    new_img = merger_maker.dcgan_cnn_imgs()
-    new_img_count = 25
-    while new_img_count < samples_needed:
-        next_batch = merger_maker.dcgan_cnn_imgs()
-        new_img = np.vstack((new_img, next_batch))
-        new_img_count += 25
-    new_img =new_img[:samples_needed, :, :, :]
-    train_images = np.vstack((train_images, new_img))
+    #new_img = merger_maker.dcgan_cnn_imgs()
+    #new_img_count = 25
+    #while new_img_count < samples_needed:
+    #    next_batch = merger_maker.si_cnn_imgs()
+    #    new_img = np.vstack((new_img, next_batch))
+    #    new_img_count += 25
+    #new_img = new_img[:samples_needed, :, :, :]
+    #train_images = np.vstack((train_images, new_img))
     # Shuffle them both the same way.
-    dual_shuffle(train_images, train_binary_labels, 42)
+    #dual_shuffle(train_images, train_binary_labels, 42)
 
 
     # the machine learning part

@@ -3,17 +3,20 @@ import numpy as np
 import os
 import cv2
 # from keras.datasets import mnist
+from keras.models import model_from_json
+from AdaIN import AdaInstanceNormalization
+from PIL import Image
 import sys
 #import time
 #from datetime import datetime
 #import pdb
 #from _NOC_Utils import create_image_tensor_on_path
-"""
+
 from _utils_CNN import *
 
 os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"]="0"
-
+"""
 ###################################################################################################
 
 colour_channels = 3 #int(sys.argv[1])  What should be registering here. My IDE says its out of index range. Used a magic 3.
@@ -167,18 +170,42 @@ test_ids = ['00005', "00002"]
 op = augmentation_oversample(df, test_ids, num_of_augments=1)
 print(op)
 """
-def dual_shuffle(array1, array2, seed):
-    np.random.seed(seed)
-    state = np.random.get_state()
-    np.random.shuffle(array1)
-    np.random.set_state(state)
-    np.random.shuffle(array2)
+
+latent_size = 512
+im_size = 64
+def noise(n):
+    return np.random.normal(0.0, 1.0, size = [n, latent_size])
+
+#Noise Sample
+def noiseImage(n):
+    return np.random.uniform(0.0, 1.0, size = [n, im_size, im_size, 1])
 
 
-arr1 = np.array([[1,2],[3,4],[5,6]])
-arr2 = np.array([[1,2],[3,4],[5,6]])
+def loadModel(name, num):  # Load a Model
 
-dual_shuffle(arr1, arr2, 15)
+    file = open("GANs/StyleGAN/Models/" + name + ".json", 'r')
+    json = file.read()
+    file.close()
 
-print(arr1)
-print(arr2)
+    mod = model_from_json(json, custom_objects={'AdaInstanceNormalization': AdaInstanceNormalization})
+    mod.load_weights("GANs/StyleGAN/Models/" + name + "_" + str(num) + ".h5")
+
+    return mod
+
+sgan_gen = loadModel("gen", 0)
+sgan_gen.summary()
+for i in range(1, 25):
+    n = noise(32)
+    n2 = noiseImage(32)
+    im2 = sgan_gen.predict([n, n2, np.ones([32, 1])])
+
+    r12 = np.concatenate(im2[i-1:i], axis=1)
+    r22 = np.concatenate(im2[8:16], axis=1)
+    r32 = np.concatenate(im2[16:24], axis=1)
+    # r43 = np.concatenate(im3[:8], axis=1)
+
+    # c1 = np.concatenate([r12, r22, r32], axis=0)
+
+    x = Image.fromarray(np.uint8(r12 * 255))
+
+    x.save(f"test{i}.jpg")

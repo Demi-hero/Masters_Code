@@ -224,9 +224,13 @@ class GAN(object):
         if self.G:
             return self.G
         
-        #Style FC, I only used 2 fully connected layers instead of 8 for faster training
+        #Style FC, I only used 4 fully connected layers instead of 8 for faster training
         inp_s = Input(shape = [latent_size])
         sty = Dense(512, kernel_initializer = 'he_normal')(inp_s)
+        sty = LeakyReLU(0.1)(sty)
+        sty = Dense(512, kernel_initializer = 'he_normal')(sty)
+        sty = LeakyReLU(0.1)(sty)
+        sty = Dense(512, kernel_initializer='he_normal')(sty)
         sty = LeakyReLU(0.1)(sty)
         sty = Dense(512, kernel_initializer = 'he_normal')(sty)
         sty = LeakyReLU(0.1)(sty)
@@ -477,7 +481,7 @@ class WGAN(object):
         json = file.read()
         file.close()
         
-        mod = model_from_json(json, custom_objects = {'AdaInstanceNormalization': AdaInstanceNormalization})
+        mod = model_from_json(json, custom_objects={'AdaInstanceNormalization': AdaInstanceNormalization})
         mod.load_weights("Models/"+name+"_"+str(num)+".h5")
         
         return mod

@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23e380af-d871-47fe-a9d2-da97d4b5aaea" name="Default Changelist" comment="Have once again reworked the oversampler. This is because I think i have found a lighter way of not reinventing the wheel. Who Knows.">
-      <change afterPath="$PROJECT_DIR$/CNN_python/Image_Generator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CNN_python/Image_Generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN_python/Image_Generator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CNN_python/Nathans_CNN.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN_python/Nathans_CNN.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CNN_python/_NOC_Utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN_python/_NOC_Utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Preprocessing/Data_Augmentation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Preprocessing/Data_Augmentation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Preprocessing/gan_img_gen.py" beforeDir="false" afterPath="$PROJECT_DIR$/gan_img_gen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GANs/StyleGAN/stylegan.py" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/StyleGAN/stylegan.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/headspace.py" beforeDir="false" afterPath="$PROJECT_DIR$/headspace.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,7 +58,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Nathans_CNN">
+  <component name="RunManager" selected="Python.headspace">
     <configuration name="Data_Augmentation" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Code" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -167,8 +166,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Nathans_CNN" />
         <item itemvalue="Python.headspace" />
+        <item itemvalue="Python.Nathans_CNN" />
         <item itemvalue="Python.gan_img_gen (1)" />
         <item itemvalue="Python.Data_Augmentation" />
         <item itemvalue="Python.gan_img_gen" />
