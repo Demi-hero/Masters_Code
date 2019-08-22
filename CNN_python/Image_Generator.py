@@ -51,4 +51,5 @@ class Merger_Generator:
         return images
 
     def style_images(self):
-        n =
+        pass
+        #n =
