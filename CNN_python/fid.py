@@ -3,6 +3,7 @@ import warnings
 from keras.applications.inception_v3 import InceptionV3
 from keras import backend as K
 import numpy as np
+import cv2
 
 
 def update_mean_cov(mean, cov, N, batch):
@@ -143,7 +144,7 @@ class FrechetInceptionDistance(object):
 
 	def _setup_inception_network(self):
 		self._inception_v3 = InceptionV3(
-			include_top=False, pooling='avg', input_shape=(64,64,3))
+			include_top=False, pooling='avg', input_shape=(128,128,3))
 		self._pool_size = self._inception_v3.output_shape[-1]
 
 	def _preprocess(self, images):
@@ -175,7 +176,10 @@ class FrechetInceptionDistance(object):
 				batch = next(inputs)
 
 			if input_type=="generated":
-				batch = self.generator.predict(batch)
+				inter = self.generator.predict(batch)
+				batch = np.zeros((25, 128, 128, 3), dtype=float)
+				for i in range(0,25):
+					batch[i] = cv2.resize(batch[i, :, :, :], dsize=(128, 128), interpolation=cv2.INTER_CUBIC)
 			if postprocessing is not None:
 				batch = postprocessing(batch)
 			batch = self._preprocess(batch)

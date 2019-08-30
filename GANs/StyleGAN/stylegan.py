@@ -448,7 +448,25 @@ class WGAN(object):
         x = Image.fromarray(np.uint8(c1*255))
         
         x.save("Results/i"+str(num)+".jpg")
-        
+
+    def evalueate3(self, num = 0):
+        n = noise(25)
+        n2 = noiseImage(25)
+
+        im2 = self.generator.predict([n, n2, np.ones([25, 1])])
+        #im3 = self.generator.predict([self.enoise, self.enoiseImage, np.ones([5, 1])])
+
+        r12 = np.concatenate(im2[:5], axis=1)
+        r22 = np.concatenate(im2[5:10], axis=1)
+        r32 = np.concatenate(im2[10:15], axis=1)
+        r43 = np.concatenate(im2[15:20], axis=1)
+        r44 = np.concatenate(im2[20:25], axis=1)
+
+        c1 = np.concatenate([r12, r22, r32, r43, r44], axis=0)
+
+        x = Image.fromarray(np.uint8(c1 * 255))
+
+        x.save("Results/q" + str(num) + ".jpg")
     def evalTrunc(self, num = 0, trunc = 1.8):
         
         n = np.clip(noise(16), -trunc, trunc)
@@ -506,18 +524,29 @@ class WGAN(object):
         self.generator = self.GAN.generator()
         self.DisModel = self.GAN.DisModel()
         self.AdModel = self.GAN.AdModel()
-        
-        
-        
-        
+
+    def summary(self):
+        self.generator.summary()
+
+    def img_generator(self):
+        n = noise(32)
+        n2 = noiseImage(32)
+        ind = np.random.randint(0,32)
+        im2 = self.generator.predict([n, n2, np.ones([32, 1])])
+        # x = Image.fromarray(np.uint8(im2[ind] * 255))
+        # x.save("test1.png")
+        return im2
+
+    def predict(self, values):
+        return self.generator.predict(values)
+
 if __name__ == "__main__":
-    model = WGAN(lr = 0.0003, silent = False)
-    model.load(0)
-
-    for i in range(1000):
-         model.evalTrunc(i)
-
-    while(True):
-        model.train()
+    model = WGAN(lr=0.0003, silent=False)
+    model.load(129)
+    for i in range(100):
+        model.evalueate3(i)
+        #model.evalTrunc(i)
+    #while(True):
+        #model.train()
 
 

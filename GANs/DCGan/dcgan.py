@@ -181,7 +181,6 @@ class DCGAN:
         cnt = 0
         for i in range(r):
             for j in range(c):
-
                 axs[i,j].imshow(gen_imgs[cnt, :, :])
                 axs[i,j].axis('off')
                 cnt += 1

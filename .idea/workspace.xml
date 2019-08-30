@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="23e380af-d871-47fe-a9d2-da97d4b5aaea" name="Default Changelist" comment="Have once again reworked the oversampler. This is because I think i have found a lighter way of not reinventing the wheel. Who Knows." />
+    <list default="true" id="23e380af-d871-47fe-a9d2-da97d4b5aaea" name="Default Changelist" comment="Have once again reworked the oversampler. This is because I think i have found a lighter way of not reinventing the wheel. Who Knows.">
+      <change afterPath="$PROJECT_DIR$/GAN_Assesment/Euclid_Measures.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GAN_Assesment/_NOC_Utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GANs/StyleGAN/FID_TEST.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GANs/StyleGAN/fid.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdaIN.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Append_paths_to_rows.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CNN_python/Convolutional_CNN.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN_python/Convolutional_CNN.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CNN_python/FID_TEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN_python/FID_TEST.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CNN_python/Image_Generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN_python/Image_Generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CNN_python/Nathans_CNN.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN_python/Nathans_CNN.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CNN_python/_NOC_Utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN_python/_NOC_Utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CNN_python/fid.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN_python/fid.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GANs/DCGan/dcgan.py" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/DCGan/dcgan.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GANs/StyleGAN/stylegan.py" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/StyleGAN/stylegan.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_utils_CNN.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gan_img_gen.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/headspace.py" beforeDir="false" afterPath="$PROJECT_DIR$/headspace.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,22 +41,22 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/GANs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/GANs/StyleGAN" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\GANs" />
-      <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\GANs\LSGan" />
-      <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\GANs\SGan" />
-      <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\GANs\DCGan" />
-      <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\CNN_python" />
       <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code" />
       <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\Preprocessing" />
       <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\Merger_Catalouge_Creation" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\GANs\StyleGAN" />
+      <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\GAN_Assesment" />
+      <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\GANs" />
+      <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\GANs\LSGan" />
+      <recent name="D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\GANs\SGan" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -52,8 +71,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.FID_TEST">
-    <configuration name="Data_Augmentation" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.FID_TEST (1)">
+    <configuration name="Euclid_Measures" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Code" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -61,11 +80,32 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Preprocessing" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GAN_Assesment" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Preprocessing/Data_Augmentation.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GAN_Assesment/Euclid_Measures.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="FID_TEST (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GANs/StyleGAN" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GANs/StyleGAN/FID_TEST.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -95,7 +135,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Nathans_CNN" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Image_Generator" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Code" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -107,28 +147,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CNN_python/Nathans_CNN.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="gan_img_gen (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Code" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gan_img_gen.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CNN_python/Image_Generator.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -160,11 +179,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.FID_TEST (1)" />
         <item itemvalue="Python.FID_TEST" />
         <item itemvalue="Python.headspace" />
-        <item itemvalue="Python.Nathans_CNN" />
-        <item itemvalue="Python.gan_img_gen (1)" />
-        <item itemvalue="Python.Data_Augmentation" />
+        <item itemvalue="Python.Euclid_Measures" />
+        <item itemvalue="Python.Image_Generator" />
       </list>
     </recent_temporary>
   </component>

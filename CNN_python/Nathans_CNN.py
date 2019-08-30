@@ -9,10 +9,12 @@ from sklearn.utils import shuffle
 from sklearn.metrics import roc_curve, auc
 from _NOC_Utils import *
 from Convolutional_CNN import Conv128_3_NN
-from Image_Generator import Merger_Generator
+# from Image_Generator import Merger_Generator
+# from stylegan import WGAN
 
 colour_channels = 3
 image_tuple = (64, 64, colour_channels)
+print(image_tuple)
 np.random.seed(56)
 
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
@@ -25,7 +27,8 @@ script_name = sys.argv[0]
 CWD = "../../Data/"
 images_root = "__IMAGES__"
 csv_root    = "__CSV__"
-
+meth = "Raw"
+figure = 20
 ###################################################################################################
 trial_name = 'Conv128_GZ1_Validation_BW-64x'
 
@@ -66,13 +69,13 @@ for test_partition in range(1, 6):
     # train = shuffle(train)
 
     # Uncomment to select augemented images oversampling
-    aug_path = os.path.join(CWD, csv_root, aug_csv)
-    samples_needed= len(train) - len(train[train.EXPERT == "M"])*2
-    aug_source = pd.read_csv(aug_path)
-    tm = train[train['EXPERT']== 'M']
-    aug_samples = augmentation_oversample(aug_source, tm.OBJID, samples_needed)
-    train = train.append(aug_samples)
-    train = shuffle(train)
+    #aug_path = os.path.join(CWD, csv_root, aug_csv)
+    #samples_needed= len(train) - len(train[train.EXPERT == "M"])*2
+    #aug_source = pd.read_csv(aug_path)
+    #tm = train[train['EXPERT']== 'M']
+    #aug_samples = augmentation_oversample(aug_source, tm.OBJID, samples_needed)
+    #train = train.append(aug_samples)
+    #train = shuffle(train)
 
     # Binary Lable Creation can I make this bit smaller?
     train_binary_labels = np.array(train['EXPERT'], dtype=str)
@@ -91,25 +94,22 @@ for test_partition in range(1, 6):
     #json_path = 'D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\GANs\DCGan\Saved_Model\galaxy_dcgan_generator.json'
     #weight_path = 'D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\GANs\DCGan\Saved_Model\galaxy_dcgan_generator_weights.hdf5'
     #merger_maker = Merger_Generator(json_path, weight_path)
+
+    # Uncomment if you need StyleGan input. The Class came with an inbuilt generator.
+    # The value in load is the model number it is using.
+    #merger_maker = WGAN(lr = 0.0003, silent = False)
+    #merger_maker.load(129)
+
     # calculate how many images needed to reach 1:1 ratio in training
     #samples_needed = len(train) - len(train[train.EXPERT == "M"]) * 2
-    # Generate and append a needed Merger binary vals.
-    #app_array = np.zeros((samples_needed, 2), dtype=int)
-    #for i in range(0, samples_needed):
-    #    app_array[i, 1] = 1
-    #train_binary_labels = np.vstack((train_binary_labels,app_array))
-    # Generate and append the new images
-    #new_img = merger_maker.dcgan_cnn_imgs()
-    #new_img_count = 25
-    #while new_img_count < samples_needed:
-    #    next_batch = merger_maker.si_cnn_imgs()
-    #    new_img = np.vstack((new_img, next_batch))
-    #    new_img_count += 25
-    #new_img = new_img[:samples_needed, :, :, :]
-    #train_images = np.vstack((train_images, new_img))
-    # Shuffle them both the same way.
-    #dual_shuffle(train_images, train_binary_labels, 42)
 
+    # function that will generate as many images as you need.
+    # If using DC or S gan g_type = 1. This is the default
+    # If using StyleGan g_type = 2
+    #train_images, train_binary_labels = img_generation(merger_maker, train_images, train_binary_labels, samples_needed
+    #                                                   , g_type=1)
+    # Shuffle them both the same way.
+    # dual_shuffle(train_images, train_binary_labels, 42)
 
     # the machine learning part
     print('\n\n  >> ' + trial_name)
@@ -118,7 +118,7 @@ for test_partition in range(1, 6):
     # Autoencoder setting and training:
     CNN = Conv128_3_NN(image_tuple)
     # Look in to Epoc Value. Once
-    CNN.train(train_images, train_binary_labels, val_images, val_binary_labels, epochs=100)
+    CNN.train(train_images, train_binary_labels, val_images, val_binary_labels, epochs=10)
 
     # Output log file:
     train_time = CNN.trial_log(output_folder, trial_name, test_partition=test_partition)
@@ -139,15 +139,11 @@ for test_partition in range(1, 6):
     tprs[-1][0] = 0.0
     roc_auc = auc(fpr, tpr)
     aucs.append(roc_auc)
-    plt.figure(test_partition+2)
-    plt.plot(fpr, tpr, lw=1, alpha=0.3,
-             label='ROC fold %d (AUC = %0.2f)' % (test_partition, roc_auc))
-    name = f"ROC_fold_{test_partition} (AUC = {roc_auc}).png"
-    curve_path = os.path.join("D:\Documents\Comp Sci Masters\Project_Data\Data\CNN_Conv128_GZ1_Validation_RGB-64x_Trial",
-                              name)
-    plt.savefig(curve_path)
-    plt.close()
+    temp_fig = test_partition + 10
+    plot_chance(temp_fig)
+    plot_fold_curve(fpr, tpr, temp_fig, test_partition, roc_auc, meth)
+    build_mean_curve(fpr, tpr, figure, test_partition, roc_auc)
 
-plot_mean_roc_curve(tprs, mean_fpr, aucs, output_folder, trial_name)
+plot_mean_roc_curve(tprs, mean_fpr, aucs, output_folder, trial_name, meth, figure)
 
 

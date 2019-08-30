@@ -32,7 +32,15 @@ class Merger_Generator:
         self.model = model_from_json(loaded)
         self.model.load_weights(self.weight_path)
         return self.model
-    # The 3 functions for returning images from single input generators
+
+   #playing with fire
+    def predict(self, inpt, resize_tpl=(128,128)):
+        imgs = self.model.predict(inpt)
+        for i in range(0, imgs.shape[0]):
+            imgs[i] = cv2.resize(imgs[i, :, :, :], dsize=resize_tpl, interpolation=cv2.INTER_CUBIC)
+        return imgs
+
+   # The 3 functions for returning images from single input generators
     def si_images(self):
         r = self.image_grid[0]
         c = self.image_grid[1]
@@ -50,6 +58,22 @@ class Merger_Generator:
         images = images.astype('float32') / 255.0
         return images
 
-    def style_images(self):
-        pass
-        #n =
+    def img_generator(self):
+        return self.si_cnn_imgs()
+
+
+if __name__ == "__main__":
+    from PIL import Image
+    json_path = 'D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\GANs\SGan\Saved_Model\galaxy_sgan_generator.json'
+    weight_path = 'D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\GANs\SGan\Saved_Model\galaxy_sgan_generator_weights.hdf5'
+    merger_maker = Merger_Generator(json_path, weight_path)
+    for i in range(100):
+        im2 = merger_maker.si_human_images()
+        r12 = np.concatenate(im2[:5], axis=1)
+        r22 = np.concatenate(im2[5:10], axis=1)
+        r32 = np.concatenate(im2[10:15], axis=1)
+        r43 = np.concatenate(im2[15:20], axis=1)
+        r44 = np.concatenate(im2[20:25], axis=1)
+        c1 = np.concatenate([r12, r22, r32, r43, r44], axis=0)
+        x = Image.fromarray(np.uint8(c1))
+        x.save("S_IMG/s_img_{}.jpg".format(i))

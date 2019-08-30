@@ -191,7 +191,13 @@ class Conv128_3_NN :
         file.close()
         
         return train_time
-        
+
+    def load_weights(self, weight_path):
+        self.model.load_weights(weight_path)
+
+    def encoded_images(self, img_array):
+        enc_im = self.encoder.predict(img_array)
+        return enc_im
 ###################################################################################################        
 ###################################################################################################        
 ###################################################################################################
