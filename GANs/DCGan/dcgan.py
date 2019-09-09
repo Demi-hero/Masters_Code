@@ -1,5 +1,6 @@
 from __future__ import print_function, division
 
+from keras.utils import plot_model
 from keras.datasets import mnist
 from keras.layers import Input, Dense, Reshape, Flatten, Dropout
 from keras.layers import BatchNormalization, Activation, ZeroPadding2D
@@ -63,23 +64,21 @@ class DCGAN:
         model.add(BatchNormalization())
         model.add(LeakyReLU())
         model.add(Reshape((8, 8, 256)))
-        assert model.output_shape == (None, 8, 8, 256)
         model.add(Conv2DTranspose(128, (5, 5), strides=(1, 1), padding='same', use_bias=False))
-        assert model.output_shape == (None, 8, 8, 128)
         model.add(BatchNormalization())
         model.add(LeakyReLU())
         model.add(Conv2DTranspose(64,(5,5), strides=(2, 2), padding='same', use_bias=False))
         model.add(BatchNormalization())
         model.add(LeakyReLU())
-        assert model.output_shape == (None, 16, 16, 64)
         model.add(Conv2DTranspose(3, (5, 5), strides=(4, 4), padding='same', use_bias=False, activation='tanh'))
         print(model.output_shape)
-        assert model.output_shape == (None, self.img_rows, self.img_cols, self.channels)
 
         model.summary()
 
         noise = Input(shape=(self.latent_dim,))
         img = model(noise)
+
+        plot_model(model, to_file="gen_model.png", show_shapes=True)
 
         return Model(noise, img)
 
@@ -110,6 +109,7 @@ class DCGAN:
 
         img = Input(shape=self.img_shape)
         validity = model(img)
+        plot_model(model, to_file="desc_model.png", show_shapes=True)
 
         return Model(img, validity)
 
@@ -206,6 +206,7 @@ class DCGAN:
 
 if __name__ == '__main__':
     dcgan = DCGAN(img_rows=64, img_cols=64, channels=3)
-    dcgan.train(epochs=3000, batch_size=32, save_interval=50, training_label="M", lable_col="Paths",
-                dataset="..\\..\\..\\Data\\__CSV__\\GZ1_Full_Expert_Paths.csv")
-    dcgan.save_model()
+    plot_model(dcgan.combined, to_file='combined_model.png', show_shapes=True)
+    #dcgan.train(epochs=3000, batch_size=32, save_interval=50, training_label="M", lable_col="Paths",
+    #            dataset="..\\..\\..\\Data\\__CSV__\\GZ1_Full_Expert_Paths.csv")
+    #dcgan.save_model()

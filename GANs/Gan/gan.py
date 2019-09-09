@@ -189,8 +189,8 @@ class GAN:
 if __name__ == '__main__':
     file = "D:\\Documents\\Comp Sci Masters\\Project_Data\\Data\\__CSV__\\GZ1_Full_Expert_Paths.csv"
     gan = GAN(64, 64, 3)
-    gan.train(epochs=30000, training_lable='M', batch_size=32, sample_interval=200,
-              dataset_path=file)
+    #gan.train(epochs=30000, training_lable='M', batch_size=32, sample_interval=200,
+    #          dataset_path=file)
     # I wonder which one will be better
-    gan.save("Saved_Model/Vanilla_Model.h5")
-    gan.save_model()
+    #gan.save("Saved_Model/Vanilla_Model.h5")
+    #gan.save_model()

@@ -8,7 +8,7 @@ from keras.layers.convolutional import Conv2DTranspose, Conv2D
 from keras.models import Sequential, Model
 from keras.optimizers import Adam
 from keras import losses
-from keras.utils import to_categorical
+from keras.utils import to_categorical, plot_model
 import keras.backend as K
 
 import matplotlib.pyplot as plt
@@ -27,7 +27,7 @@ class SGAN:
         self.img_cols = img_cols
         self.channels = channels
         self.img_shape = (self.img_rows, self.img_cols, self.channels)
-        self.num_classes = 10
+        self.num_classes = 3
         self.latent_dim = 100
 
         optimizer = Adam(0.0002, 0.5)
@@ -84,6 +84,7 @@ class SGAN:
 
         noise = Input(shape=(self.latent_dim,))
         img = model(noise)
+        plot_model(model, to_file="gen_model.png", show_shapes=True)
 
         return Model(noise, img)
 
@@ -115,7 +116,7 @@ class SGAN:
         features = model(img)
         valid = Dense(1, activation="sigmoid")(features)
         label = Dense(self.num_classes+1, activation="softmax")(features)
-
+        plot_model(model, to_file="desc_model.png", show_shapes=True)
         return Model(img, [valid, label])
 
     def train(self, epochs, batch_size=128, sample_interval=50, dataset = "Mnist",):

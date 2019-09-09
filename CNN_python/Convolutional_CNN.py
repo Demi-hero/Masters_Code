@@ -18,7 +18,7 @@ matplotlib.use('Agg')
 plt.switch_backend('agg')
 
 from _utils_CNN import convert_seconds
-
+from keras.utils import plot_model
 from keras.layers import Input, Conv2D, MaxPooling2D, Dense, Flatten
 from keras.models import Model
 from keras import backend as K
@@ -70,9 +70,9 @@ class Conv128_3_NN :
         x = Dense(128, activation='relu')(x)  # (8, 8, 32)
         
         output = Dense(2, activation='softmax')(x)
-    
-    
+
         self.model = Model(inputs=input_img, outputs=output)
+        plot_model(self.model, to_file="CNN_Model.png", show_shapes=True)
 
     def train(self, train_images, train_labels, val_images, val_labels, optimizer='sgd',
               loss='mean_squared_error', epochs=100, batch_size=256, shuffle=True):
@@ -201,3 +201,6 @@ class Conv128_3_NN :
 ###################################################################################################        
 ###################################################################################################        
 ###################################################################################################
+
+image_tuple = (64, 64, 3)
+CNN = Conv128_3_NN(image_tuple)

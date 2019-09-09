@@ -98,7 +98,7 @@ from keras.layers import Reshape, UpSampling2D, Dropout, Flatten, Input, add, Cr
 from keras.models import model_from_json, Model
 from keras.optimizers import Adam
 import keras.backend as K
-
+from keras.utils import plot_model
 from AdaIN import AdaInstanceNormalization
 
 
@@ -216,7 +216,7 @@ class GAN(object):
         x = Dense(1)(x)
         
         self.D = Model(inputs = inp, outputs = x)
-        
+        plot_model(self.D, to_file="dis_model.png", show_shapes=True)
         return self.D
     
     def generator(self):
@@ -267,7 +267,7 @@ class GAN(object):
         x = Conv2D(filters = 3, kernel_size = 1, padding = 'same', activation = 'sigmoid')(x)
         
         self.G = Model(inputs = [inp_s, inp_n, inp], outputs = x)
-        
+        plot_model(self.G, to_file="gen_model.png", show_shapes=True)
         return self.G
     
     def AdModel(self):
@@ -542,9 +542,9 @@ class WGAN(object):
 
 if __name__ == "__main__":
     model = WGAN(lr=0.0003, silent=False)
-    model.load(129)
-    for i in range(100):
-        model.evalueate3(i)
+    #model.load(129)
+    #for i in range(100):
+    #    model.evalueate3(i)
         #model.evalTrunc(i)
     #while(True):
         #model.train()
