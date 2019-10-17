@@ -193,7 +193,7 @@ class DCGAN:
             model_path = "saved_model/%s.json" % model_name
             weights_path = "saved_model/%s_weights.hdf5" % model_name
             options = {"file_arch": model_path,
-                        "file_weight": weights_path}
+                       "file_weight": weights_path}
             json_string = model.to_json()
             open(options['file_arch'], 'w').write(json_string)
             model.save_weights(options['file_weight'])
@@ -207,6 +207,6 @@ class DCGAN:
 if __name__ == '__main__':
     dcgan = DCGAN(img_rows=64, img_cols=64, channels=3)
     plot_model(dcgan.combined, to_file='combined_model.png', show_shapes=True)
-    #dcgan.train(epochs=3000, batch_size=32, save_interval=50, training_label="M", lable_col="Paths",
-    #            dataset="..\\..\\..\\Data\\__CSV__\\GZ1_Full_Expert_Paths.csv")
-    #dcgan.save_model()
+    # dcgan.train(epochs=3000, batch_size=32, save_interval=50, training_label="M", lable_col="Paths",
+    #             dataset="..\\..\\..\\Data\\__CSV__\\GZ1_Full_Expert_Paths.csv")
+    # dcgan.save_model()

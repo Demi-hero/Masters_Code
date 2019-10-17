@@ -3,16 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="23e380af-d871-47fe-a9d2-da97d4b5aaea" name="Default Changelist" comment="Have once again reworked the oversampler. This is because I think i have found a lighter way of not reinventing the wheel. Who Knows.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CNN_python/Convolutional_CNN.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN_python/Convolutional_CNN.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CNN_python/Image_Generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN_python/Image_Generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CNN_python/Nathans_CNN.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN_python/Nathans_CNN.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GAN_Assesment/Euclid_Measures.py" beforeDir="false" afterPath="$PROJECT_DIR$/GAN_Assesment/Euclid_Measures.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GANs/DCGan/_gan_util.py" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/DCGan/_gan_util.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GANs/DCGan/dcgan.py" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/DCGan/dcgan.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GANs/Gan/gan.py" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/Gan/gan.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GANs/SGan/Saved_Model/galaxy_sgan_adversarial.json" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/SGan/Saved_Model/galaxy_sgan_adversarial.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GANs/SGan/Saved_Model/galaxy_sgan_adversarial_weights.hdf5" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/SGan/Saved_Model/galaxy_sgan_adversarial_weights.hdf5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GANs/SGan/Saved_Model/galaxy_sgan_discriminator.json" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/SGan/Saved_Model/galaxy_sgan_discriminator.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GANs/SGan/Saved_Model/galaxy_sgan_discriminator_weights.hdf5" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/SGan/Saved_Model/galaxy_sgan_discriminator_weights.hdf5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GANs/SGan/Saved_Model/galaxy_sgan_generator_weights.hdf5" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/SGan/Saved_Model/galaxy_sgan_generator_weights.hdf5" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GANs/SGan/sgan.py" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/SGan/sgan.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GANs/StyleGAN/stylegan.py" beforeDir="false" afterPath="$PROJECT_DIR$/GANs/StyleGAN/stylegan.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,8 +60,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.sgan">
-    <configuration name="Convolutional_CNN" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.Nathans_CNN">
+    <configuration name="Image_Generator" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Code" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -77,7 +73,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CNN_python/Convolutional_CNN.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CNN_python/Image_Generator.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -86,7 +82,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="dcgan" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Nathans_CNN" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Code" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -94,11 +90,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GANs/DCGan" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CNN_python" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GANs/DCGan/dcgan.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CNN_python/Nathans_CNN.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -172,11 +168,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Nathans_CNN" />
+        <item itemvalue="Python.Image_Generator" />
         <item itemvalue="Python.sgan" />
         <item itemvalue="Python.make_gif" />
         <item itemvalue="Python.stylegan" />
-        <item itemvalue="Python.Convolutional_CNN" />
-        <item itemvalue="Python.dcgan" />
       </list>
     </recent_temporary>
   </component>

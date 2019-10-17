@@ -64,16 +64,20 @@ class Merger_Generator:
 
 if __name__ == "__main__":
     from PIL import Image
-    json_path = 'D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\GANs\SGan\Saved_Model\galaxy_sgan_generator.json'
-    weight_path = 'D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\GANs\SGan\Saved_Model\galaxy_sgan_generator_weights.hdf5'
+    import time
+    start_time = time.time()
+    json_path = 'D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\GANs\DCGan\Saved_Model\galaxy_dcgan_generator.json'
+    weight_path = 'D:\Documents\Comp Sci Masters\Project_Data\Masters_Code\GANs\DCGan\Saved_Model\galaxy_dcgan_generator_weights.hdf5'
     merger_maker = Merger_Generator(json_path, weight_path)
     for i in range(100):
         im2 = merger_maker.si_human_images()
-        r12 = np.concatenate(im2[:5], axis=1)
-        r22 = np.concatenate(im2[5:10], axis=1)
-        r32 = np.concatenate(im2[10:15], axis=1)
-        r43 = np.concatenate(im2[15:20], axis=1)
-        r44 = np.concatenate(im2[20:25], axis=1)
-        c1 = np.concatenate([r12, r22, r32, r43, r44], axis=0)
-        x = Image.fromarray(np.uint8(c1))
-        x.save("S_IMG/s_img_{}.jpg".format(i))
+     #   r12 = np.concatenate(im2[:5], axis=1)
+     #   r22 = np.concatenate(im2[5:10], axis=1)
+     #   r32 = np.concatenate(im2[10:15], axis=1)
+     #   r43 = np.concatenate(im2[15:20], axis=1)
+     #   r44 = np.concatenate(im2[20:25], axis=1)
+     #   c1 = np.concatenate([r12, r22, r32, r43, r44], axis=0)
+     #   x = Image.fromarray(np.uint8(c1))
+     #   x.save("S_IMG/s_img_{}.jpg".format(i))
+    rt = time.time() - start_time
+    print(f"{rt} seconds")

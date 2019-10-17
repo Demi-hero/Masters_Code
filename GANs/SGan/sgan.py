@@ -124,7 +124,6 @@ class SGAN:
         # Load the dataset
         if dataset == "Mnist":
             (X_train, y_train), (_, _) = mnist.load_data()
-
         else:
             path = os.path.join(dataset)
             data = pd.read_csv(path)

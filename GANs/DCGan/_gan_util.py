@@ -2,9 +2,6 @@ import numpy as np
 import os
 import cv2
 
-
-
-
 def create_image_tensor_on_path(path_list, dim_tuple, extra_path_details=""):
     RGB = 1
 

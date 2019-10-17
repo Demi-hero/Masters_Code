@@ -81,7 +81,7 @@ else:
     gan_img = gan_img / 255
     generate = 0
 
-if generate :
+if generate:
     gan_img = merger_maker.img_generator()
     gan_img = gan_img[:25, :, :, :]
 # Create the Classifier
@@ -90,7 +90,7 @@ classifier.load_weights(class_weight_path)
 
 # Read in the Merger Galaxy Images normalised to 0-1.
 data = pd.read_csv(csv_path)
-data = data[data.EXPERT == 'M'][:25]
+data = data[data.EXPERT == 'M']#[:25]
 data_tens = create_image_tensor_on_path(data.Paths, image_tuple, extra_path_details="..")
 
 
